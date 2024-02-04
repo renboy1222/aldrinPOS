@@ -37,6 +37,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.util.HSLColor;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -52,6 +53,7 @@ import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.function.Function;
@@ -78,6 +80,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     /**
      * Creates new form JFrameAldrinPOS
      */
+    File fontStyle = new File("src/main/resources/fonts/Oswald-VariableFont_wght.ttf");
     private ProductDAOImpl productDAOImpl = new ProductDAOImpl();
     private DecimalFormat df = new DecimalFormat("##,##0.00");
     private JTextComponent editor;
@@ -115,6 +118,17 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         editor.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "SEARCH PRODUCT");
         jScrollPane1.setFocusable(false);
         jTableDispense.setFocusable(false);
+        Font font;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(84f);
+            jLabelTotal.setFont(font);
+        } catch (FontFormatException ex) {
+            Logger.getLogger(JFrameAldrinPOS.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(JFrameAldrinPOS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     /**
@@ -204,19 +218,19 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jPanelButtons = new javax.swing.JPanel();
-        jButtonQtyAdd = new javax.swing.JButton(new FlatSVGIcon("svg/add.svg",24,24));
+        jButtonQtyAdd = new javax.swing.JButton(new FlatSVGIcon("svg/add.svg",32,32));
         jLabel1 = new javax.swing.JLabel();
-        jButtonQtyMinus = new javax.swing.JButton(new FlatSVGIcon("svg/minus.svg",24,24));
+        jButtonQtyMinus = new javax.swing.JButton(new FlatSVGIcon("svg/minus.svg",32,32));
         jLabel2 = new javax.swing.JLabel();
-        jButtonQtyEdit = new javax.swing.JButton(new FlatSVGIcon("svg/edit.svg",24,24));
+        jButtonQtyEdit = new javax.swing.JButton(new FlatSVGIcon("svg/edit.svg",32,32));
         jLabel6 = new javax.swing.JLabel();
-        jButtonQtyRemove = new javax.swing.JButton(new FlatSVGIcon("svg/remove.svg",24,24));
+        jButtonQtyRemove = new javax.swing.JButton(new FlatSVGIcon("svg/remove.svg",32,32));
         jPanelButtons1 = new javax.swing.JPanel();
-        jButtonNewDispense = new javax.swing.JButton(new FlatSVGIcon("svg/file.svg",24,24));
+        jButtonNewDispense = new javax.swing.JButton(new FlatSVGIcon("svg/file.svg",32,32));
         jLabel3 = new javax.swing.JLabel();
-        jButtonHold = new javax.swing.JButton(new FlatSVGIcon("svg/hold.svg",24,24));
+        jButtonHold = new javax.swing.JButton(new FlatSVGIcon("svg/hold.svg",32,32));
         jLabel4 = new javax.swing.JLabel();
-        jButtonPayment = new javax.swing.JButton(new FlatSVGIcon("svg/payment.svg",24,24));
+        jButtonPayment = new javax.swing.JButton(new FlatSVGIcon("svg/payment.svg",32,32));
         jPanel20 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
@@ -935,27 +949,28 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 10, 5));
 
         jButton1.setIcon(new FlatSVGIcon("svg/return.svg",32,32));
-        jButton1.setToolTipText("Return Dispense");
+        jButton1.setToolTipText("Return dispense");
         jButton1.setFocusable(false);
         jButton1.setMargin(new java.awt.Insets(2, 2, 2, 2));
         jButton1.setPreferredSize(new java.awt.Dimension(42, 36));
         jPanel15.add(jButton1);
 
-        jButton2.setIcon(new FlatSVGIcon("svg/edit-dispense.svg",24,24));
-        jButton2.setToolTipText("Edit Dispense");
+        jButton2.setIcon(new FlatSVGIcon("svg/edit.svg",32,32));
+        jButton2.setToolTipText("Edit dispense");
         jButton2.setFocusable(false);
         jButton2.setMargin(new java.awt.Insets(2, 2, 2, 2));
         jButton2.setPreferredSize(new java.awt.Dimension(42, 36));
         jPanel15.add(jButton2);
 
-        jButton3.setToolTipText("Add Coupon");
+        jButton3.setIcon(new FlatSVGIcon("svg/coupon.svg",32,32));
+        jButton3.setToolTipText("Add coupon");
         jButton3.setFocusable(false);
         jButton3.setMargin(new java.awt.Insets(2, 2, 2, 2));
         jButton3.setPreferredSize(new java.awt.Dimension(42, 36));
         jPanel15.add(jButton3);
 
-        jButton4.setIcon(new FlatSVGIcon("svg/discount.svg",24,24));
-        jButton4.setToolTipText("Add Discount");
+        jButton4.setIcon(new FlatSVGIcon("svg/discount.svg",32,32));
+        jButton4.setToolTipText("Add discount");
         jButton4.setFocusable(false);
         jButton4.setMargin(new java.awt.Insets(2, 2, 2, 2));
         jButton4.setPreferredSize(new java.awt.Dimension(42, 36));
@@ -1037,7 +1052,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         });
         jPanel21.add(jToggleButton1);
 
-        jButton5.setToolTipText("Manual Entry");
+        jButton5.setToolTipText("Manual entry");
         jButton5.setFocusable(false);
         jButton5.setMargin(new java.awt.Insets(2, 2, 2, 2));
         jButton5.setPreferredSize(new java.awt.Dimension(42, 36));
@@ -1152,7 +1167,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel24.setFocusable(false);
         jPanel24.setLayout(new java.awt.BorderLayout());
 
-        jToolBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(102, 102, 102)));
         jToolBar1.setRollover(true);
         jToolBar1.setFocusable(false);
 
@@ -1173,7 +1188,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jToolBar1.add(jButtonStockIn);
 
         jButtonDispense.setIcon(new FlatSVGIcon("svg/sales.svg",32,32));
-        jButtonDispense.setToolTipText("Invoice List");
+        jButtonDispense.setToolTipText("Invoice list");
         jButtonDispense.setFocusable(false);
         jButtonDispense.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonDispense.setMargin(new java.awt.Insets(1, 1, 1, 1));
@@ -1205,7 +1220,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jToolBar1.add(jButtonProducts);
 
         jButtonSale.setIcon(new FlatSVGIcon("svg/sale.svg",32,32));
-        jButtonSale.setToolTipText("User Sales");
+        jButtonSale.setToolTipText("User sales");
         jButtonSale.setFocusable(false);
         jButtonSale.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSale.setMargin(new java.awt.Insets(1, 1, 1, 1));
@@ -1286,7 +1301,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jMenuSetting.setText("Settings");
         jMenuSetting.setFocusable(false);
 
-        jMenuItem3.setIcon(new FlatSVGIcon("svg/list.svg",16,16));
+        jMenuItem3.setIcon(new FlatSVGIcon("svg/category.svg",16,16));
         jMenuItem3.setText("Category");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1510,7 +1525,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private void jMenuItemDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDarkActionPerformed
         SwingUtilities.invokeLater(() -> {
             try {
-                svgColorChange(new java.awt.Color(169,169,169));
+                svgColorChange(new java.awt.Color(169, 169, 169));
                 UIManager.setLookAndFeel(new FlatDarkLaf());
                 SwingUtilities.updateComponentTreeUI(this);
             } catch (UnsupportedLookAndFeelException ex) {
@@ -1753,7 +1768,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
         column[6] = jTableDispense.getColumnModel().getColumn(6);
         column[6].setPreferredWidth(100);
-        
 
     }
 
@@ -2068,7 +2082,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
     private void fontsInit() {
         try {
-            File fontStyle = new File("src/main/resources/fonts/Oswald-VariableFont_wght.ttf");
+
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(44f);
             jLabelAmountDue.setFont(font.deriveFont(28f));
             jLabeltxtAmountDue.setFont(font);

@@ -80,7 +80,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new FlatSVGIcon(&quot;svg/list.svg&quot;,16,16)" type="code"/>
+                  <Connection code="new FlatSVGIcon(&quot;svg/category.svg&quot;,16,16)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Category"/>
               </Properties>
@@ -1416,7 +1416,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonQtyAddActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/add.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/add.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -1439,7 +1439,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonQtyMinusActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/minus.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/minus.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -1462,7 +1462,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonQtyEditActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/edit.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/edit.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -1491,7 +1491,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonQtyRemoveActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/remove.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/remove.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                       </SubComponents>
@@ -1530,7 +1530,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewDispenseActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/file.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/file.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -1556,7 +1556,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHoldActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/hold.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/hold.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -1579,7 +1579,7 @@
                                                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPaymentActionPerformed"/>
                                                           </Events>
                                                           <AuxValues>
-                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/payment.svg&quot;,24,24))"/>
+                                                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(new FlatSVGIcon(&quot;svg/payment.svg&quot;,32,32))"/>
                                                           </AuxValues>
                                                         </Component>
                                                       </SubComponents>
@@ -1655,7 +1655,7 @@
                                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection code="new FlatSVGIcon(&quot;svg/return.svg&quot;,32,32)" type="code"/>
                                             </Property>
-                                            <Property name="toolTipText" type="java.lang.String" value="Return Dispense"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Return dispense"/>
                                             <Property name="focusable" type="boolean" value="false"/>
                                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                               <Insets value="[2, 2, 2, 2]"/>
@@ -1668,9 +1668,9 @@
                                         <Component class="javax.swing.JButton" name="jButton2">
                                           <Properties>
                                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="new FlatSVGIcon(&quot;svg/edit-dispense.svg&quot;,24,24)" type="code"/>
+                                              <Connection code="new FlatSVGIcon(&quot;svg/edit.svg&quot;,32,32)" type="code"/>
                                             </Property>
-                                            <Property name="toolTipText" type="java.lang.String" value="Edit Dispense"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Edit dispense"/>
                                             <Property name="focusable" type="boolean" value="false"/>
                                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                               <Insets value="[2, 2, 2, 2]"/>
@@ -1682,7 +1682,10 @@
                                         </Component>
                                         <Component class="javax.swing.JButton" name="jButton3">
                                           <Properties>
-                                            <Property name="toolTipText" type="java.lang.String" value="Add Coupon"/>
+                                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="new FlatSVGIcon(&quot;svg/coupon.svg&quot;,32,32)" type="code"/>
+                                            </Property>
+                                            <Property name="toolTipText" type="java.lang.String" value="Add coupon"/>
                                             <Property name="focusable" type="boolean" value="false"/>
                                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                               <Insets value="[2, 2, 2, 2]"/>
@@ -1695,9 +1698,9 @@
                                         <Component class="javax.swing.JButton" name="jButton4">
                                           <Properties>
                                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="new FlatSVGIcon(&quot;svg/discount.svg&quot;,24,24)" type="code"/>
+                                              <Connection code="new FlatSVGIcon(&quot;svg/discount.svg&quot;,32,32)" type="code"/>
                                             </Property>
-                                            <Property name="toolTipText" type="java.lang.String" value="Add Discount"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Add discount"/>
                                             <Property name="focusable" type="boolean" value="false"/>
                                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                               <Insets value="[2, 2, 2, 2]"/>
@@ -1858,7 +1861,7 @@
                                             </Component>
                                             <Component class="javax.swing.JButton" name="jButton5">
                                               <Properties>
-                                                <Property name="toolTipText" type="java.lang.String" value="Manual Entry"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="Manual entry"/>
                                                 <Property name="focusable" type="boolean" value="false"/>
                                                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                                   <Insets value="[2, 2, 2, 2]"/>
@@ -2050,10 +2053,10 @@
                 <Container class="javax.swing.JToolBar" name="jToolBar1">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                        <EtchetBorder>
-                          <Color PropertyName="highlight" blue="cc" green="cc" red="cc" type="rgb"/>
-                        </EtchetBorder>
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="1" left="0" right="0" top="0">
+                          <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                        </MatteColorBorder>
                       </Border>
                     </Property>
                     <Property name="rollover" type="boolean" value="true"/>
@@ -2098,7 +2101,7 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="new FlatSVGIcon(&quot;svg/sales.svg&quot;,32,32)" type="code"/>
                         </Property>
-                        <Property name="toolTipText" type="java.lang.String" value="Invoice List"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Invoice list"/>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -2150,7 +2153,7 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="new FlatSVGIcon(&quot;svg/sale.svg&quot;,32,32)" type="code"/>
                         </Property>
-                        <Property name="toolTipText" type="java.lang.String" value="User Sales"/>
+                        <Property name="toolTipText" type="java.lang.String" value="User sales"/>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">

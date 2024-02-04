@@ -13,6 +13,8 @@ import com.aldrin.pos.util.ComboBoxList;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -25,7 +27,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author ALRIN B.C.
  */
-public class JDialogProfit extends javax.swing.JDialog {
+public class JDialogProfit extends javax.swing.JDialog implements ActionListener {
 
     /**
      * Creates new form JDialogPreviewStockIn
@@ -37,7 +39,7 @@ public class JDialogProfit extends javax.swing.JDialog {
     public JDialogProfit(JFrameAldrinPOS jFrameSariPOS, boolean modal) {
         super(jFrameSariPOS, modal);
         initComponents();
-        this.jFrameSariPOS =jFrameSariPOS;
+        this.jFrameSariPOS = jFrameSariPOS;
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(187, 187, 187));
         jPanelGrandTotal.putClientProperty(FlatClientProperties.STYLE,
                 "[light]border: 0,0,0,0,shade(@background,30%),,18;" + "[dark]border: 0,0,0,0,tint(@background,30%),,8");
@@ -47,6 +49,8 @@ public class JDialogProfit extends javax.swing.JDialog {
         comboBoxEnd();
         selectProfit();
         autoCalulateTable();
+        jComboBoxStart.addActionListener(this);
+        jComboBoxEnd.addActionListener(this);
 
     }
 
@@ -71,7 +75,6 @@ public class JDialogProfit extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jComboBoxEnd = new javax.swing.JComboBox<>();
         jComboBoxStart = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
@@ -153,16 +156,6 @@ public class JDialogProfit extends javax.swing.JDialog {
             }
         });
         jPanel3.add(jComboBoxStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 10, 220, 30));
-
-        jButton2.setIcon(new FlatSVGIcon("svg/search.svg",24,24));
-        jButton2.setText("SEARCH");
-        jButton2.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 100, 30));
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -270,15 +263,8 @@ public class JDialogProfit extends javax.swing.JDialog {
         profit.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
-        ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
-        selectProfitWithParam(startId.getId(), endId.getId());
-        autoCalulateTable();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jComboBoxStartItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxStartItemStateChanged
-        
+
     }//GEN-LAST:event_jComboBoxStartItemStateChanged
 
     private void jComboBoxEndPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxEndPropertyChange
@@ -292,7 +278,7 @@ public class JDialogProfit extends javax.swing.JDialog {
     }//GEN-LAST:event_jComboBoxStartActionPerformed
 
     private void jComboBoxEndItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEndItemStateChanged
-        
+
     }//GEN-LAST:event_jComboBoxEndItemStateChanged
 
     private void jComboBoxStartPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxStartPropertyChange
@@ -304,7 +290,6 @@ public class JDialogProfit extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<Object> jComboBoxEnd;
     private javax.swing.JComboBox<Object> jComboBoxStart;
     private javax.swing.JLabel jLabel1;
@@ -430,8 +415,8 @@ public class JDialogProfit extends javax.swing.JDialog {
             this.jComboBoxEnd.addItem(a);
         }
     }
-    
-        private void selectProfitWithParam(Long start,Long end) {
+
+    private void selectProfitWithParam(Long start, Long end) {
 //      "#,USER, DATE, SALES"
         tableModel.setRowCount(0);
         profitList = profit.selectProfitWithParam(start, end);
@@ -441,5 +426,12 @@ public class JDialogProfit extends javax.swing.JDialog {
         }
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
+        ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
+        selectProfitWithParam(startId.getId(), endId.getId());
+        autoCalulateTable();
+    }
 
 }
