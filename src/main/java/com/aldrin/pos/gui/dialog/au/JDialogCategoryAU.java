@@ -32,7 +32,7 @@ public class JDialogCategoryAU extends javax.swing.JDialog {
         initComponents();
         setTitle("New");
         this.title = "New";
-        jButton1.setIcon(new FlatSVGIcon("svg/save.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/save.svg",24,24));
         jTextFieldCategory.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "CATEGORY");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");
         jTextFieldCategory.setText(category.getCategory());
@@ -46,7 +46,7 @@ public class JDialogCategoryAU extends javax.swing.JDialog {
         setTitle(title);
         this.title = title;
         this.category = role;
-        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg",24,24));
         jButton1.setText(title);
         jTextFieldCategory.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "CATEGORY");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");
@@ -61,7 +61,7 @@ public class JDialogCategoryAU extends javax.swing.JDialog {
         setTitle(title);
         this.category = category;
         this.title = title;
-        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg",24,24));
         jButton1.setText(title);
         jTextFieldCategory.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "CATEGORY");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");

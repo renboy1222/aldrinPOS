@@ -9,6 +9,7 @@ import com.aldrin.pos.data.dao.impl.TransporterDAOImpl;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.model.Transporter;
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -53,6 +54,7 @@ public class JDialogTransporterAU extends javax.swing.JDialog {
         jTextFieldAddress.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ADDRESS");
         jTextFieldCompany.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "COMPANY");
         jTextFieldCompAddress.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "COMPANY'S ADDRESS");
+        jButton1.setIcon(new FlatSVGIcon("svg/save.svg", 24, 24));
 
     }
 
@@ -78,6 +80,7 @@ public class JDialogTransporterAU extends javax.swing.JDialog {
         jTextFieldCompany.setText(transporter.getCompany());
         jTextFieldCompAddress.setText(transporter.getCompany_address());
         displayPicture(transporter);
+        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg", 24, 24));
 
     }
 
@@ -103,6 +106,7 @@ public class JDialogTransporterAU extends javax.swing.JDialog {
         jTextFieldCompany.setText(transporter.getCompany());
         jTextFieldCompAddress.setText(transporter.getCompany_address());
         displayPicture(transporter);
+        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg", 24, 24));
     }
 
     /**

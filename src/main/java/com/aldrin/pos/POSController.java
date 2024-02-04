@@ -81,10 +81,12 @@ public class POSController {
             case "ADMIN":
                 jFrameAldrinPOS.getjMenuManage().setVisible(true);
                 jFrameAldrinPOS.getjMenuSetting().setVisible(true);
+                jFrameAldrinPOS.getjButtonStockIn().setVisible(true);
                 break;
             case "USER":
                 jFrameAldrinPOS.getjMenuManage().setVisible(false);
                 jFrameAldrinPOS.getjMenuSetting().setVisible(false);
+                jFrameAldrinPOS.getjButtonStockIn().setVisible(false);
                 break;
             default:
                 throw new AssertionError();

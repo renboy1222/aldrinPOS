@@ -30,7 +30,7 @@ public interface UserAccountDAO {
 
     public UserAccount loginUserAccount(UserAccount userAccount);
 
-    public void changePassword(UserAccount userAccount);
+    public Boolean changePassword(UserAccount userAccount);
 
     public UserAccount findPhotoByUserAccountId(UserAccount userAccount);
 

@@ -202,7 +202,7 @@ public class UserAccountDAOImpl extends DBConnection implements UserAccountDAO {
                     + "INNER JOIN \n"
                     + "    ALDRIN.ROLE \n"
                     + "ON \n"
-                    + "    (ALDRIN.USER_ACCOUNT.ROLE_ID = ALDRIN.ROLE.ID) WHERE ALDRIN.USER_ACCOUNT.USERNAME ='"+userAccount.getUsername()+"' AND ALDRIN.USER_ACCOUNT.PASSWORD ='"+userAccount.getPassword()+"' ");
+                    + "    (ALDRIN.USER_ACCOUNT.ROLE_ID = ALDRIN.ROLE.ID) WHERE ALDRIN.USER_ACCOUNT.USERNAME ='" + userAccount.getUsername() + "' AND ALDRIN.USER_ACCOUNT.PASSWORD ='" + userAccount.getPassword() + "' ");
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 UserAccount ua = new UserAccount();
@@ -210,11 +210,11 @@ public class UserAccountDAOImpl extends DBConnection implements UserAccountDAO {
                 Long userId = rs.getLong("ID");
                 Long roleId = rs.getLong("ROLE_ID");
                 String firstname = rs.getString("FIRSTNAME");
-                String surname =rs.getString("SURNAME");
-                String username =rs.getString("USERNAME");
-                String password =rs.getString("PASSWORD");
-                String role =rs.getString("ROLE");
-                boolean active =rs.getBoolean("ACTIVE");
+                String surname = rs.getString("SURNAME");
+                String username = rs.getString("USERNAME");
+                String password = rs.getString("PASSWORD");
+                String role = rs.getString("ROLE");
+                boolean active = rs.getBoolean("ACTIVE");
                 r.setId(roleId);
                 r.setRole(role);
                 ua.setRole(r);
@@ -224,7 +224,7 @@ public class UserAccountDAOImpl extends DBConnection implements UserAccountDAO {
                 ua.setUsername(username);
                 ua.setPassword(password);
                 ua.setActive(active);
-                userInfo =ua;
+                userInfo = ua;
             }
             rs.close();
             statement.close();
@@ -238,8 +238,22 @@ public class UserAccountDAOImpl extends DBConnection implements UserAccountDAO {
     }
 
     @Override
-    public void changePassword(UserAccount userAccount) {
-        UserAccount userInfo = null;
+    public Boolean changePassword(UserAccount userAccount) {
+        Boolean changePassword = false;
+        try {
+            getDBConn();
+            java.sql.PreparedStatement ps = getCon().prepareStatement("UPDATE ALDRIN.USER_ACCOUNT SET  PASSWORD=?  WHERE USER_ACCOUNT.ID = ?");
+            ps.setString(1, userAccount.getPassword());
+            ps.setLong(2, userAccount.getId());
+            ps.execute();
+            ps.close();
+            closeConnection();
+            changePassword = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return changePassword;
 
     }
 

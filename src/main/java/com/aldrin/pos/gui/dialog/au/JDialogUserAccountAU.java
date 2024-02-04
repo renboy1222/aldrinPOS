@@ -12,6 +12,7 @@ import com.aldrin.pos.model.Role;
 import com.aldrin.pos.model.UserAccount;
 import com.aldrin.pos.util.ComboBoxList;
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -57,6 +58,7 @@ public class JDialogUserAccountAU extends javax.swing.JDialog {
         jTextFieldPassword.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "PASSWORD");
         comboBoxUserAccount();
         jCheckBoxActive.setSelected(true);
+        jButton1.setIcon(new FlatSVGIcon("svg/save.svg",24,24));
         
 
     }
@@ -82,6 +84,7 @@ public class JDialogUserAccountAU extends javax.swing.JDialog {
             a.setSelectedId(roleDAOImpl.getList(), String.valueOf(userAccount.getRole().getId()), jComboBoxRole);
         }
         displayPicture(userAccount);
+        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg",24,24));
 
     }
 
@@ -106,6 +109,7 @@ public class JDialogUserAccountAU extends javax.swing.JDialog {
             a.setSelectedId(roleDAOImpl.getList(), String.valueOf(userAccount.getRole().getId()), jComboBoxRole);
         }
         displayPicture(userAccount);
+        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg",24,24));
     }
 
     /**

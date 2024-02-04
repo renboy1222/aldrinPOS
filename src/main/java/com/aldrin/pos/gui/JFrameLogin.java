@@ -110,7 +110,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         jPanel1.add(jPasswordFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 165, 317, -1));
 
         jButtonLogin.setForeground(new java.awt.Color(102, 102, 102));
-        jButtonLogin.setIcon(new FlatSVGIcon("svg/login.svg",32,32));
+        jButtonLogin.setIcon(new FlatSVGIcon("svg/login.svg",24,24));
         jButtonLogin.setText("Login");
         jButtonLogin.setPreferredSize(new java.awt.Dimension(71, 35));
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {

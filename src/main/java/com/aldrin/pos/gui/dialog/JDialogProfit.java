@@ -9,12 +9,15 @@ import com.aldrin.pos.data.dao.impl.Profit;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.gui.dialog.report.JDialogProfitReport;
 import com.aldrin.pos.model.StockInEntry;
+import com.aldrin.pos.util.ComboBoxAutoFill;
 import com.aldrin.pos.util.ComboBoxList;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -22,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -35,6 +39,7 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
     private JFrameAldrinPOS jFrameSariPOS;
     private StockInEntry stockInEntry;
     private DecimalFormat df = new DecimalFormat("##,##0.00");
+    private JTextComponent editor;
 
     public JDialogProfit(JFrameAldrinPOS jFrameSariPOS, boolean modal) {
         super(jFrameSariPOS, modal);
@@ -49,6 +54,17 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
         comboBoxEnd();
         selectProfit();
         autoCalulateTable();
+
+        jComboBoxStart.setEditable(true);
+        editor = (JTextComponent) jComboBoxStart.getEditor().getEditorComponent();
+        editor.addKeyListener(new JDialogProfit.ComboBoxItemKeyListener());
+        editor.setDocument(new ComboBoxAutoFill(jComboBoxStart));
+
+        jComboBoxEnd.setEditable(true);
+        editor = (JTextComponent) jComboBoxEnd.getEditor().getEditorComponent();
+        editor.addKeyListener(new JDialogProfit.ComboBoxItemKeyListener());
+        editor.setDocument(new ComboBoxAutoFill(jComboBoxEnd));
+
         jComboBoxStart.addActionListener(this);
         jComboBoxEnd.addActionListener(this);
 
@@ -428,10 +444,28 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
-        ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
-        selectProfitWithParam(startId.getId(), endId.getId());
-        autoCalulateTable();
+        try {
+            ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
+            ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
+            selectProfitWithParam(startId.getId(), endId.getId());
+            autoCalulateTable();
+        } catch (Exception ex) {
+
+        }
+    }
+
+    class ComboBoxItemKeyListener extends KeyAdapter {
+
+        public void keyPressed(KeyEvent evt) {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                ComboBoxList startId = (ComboBoxList) JDialogProfit.this.jComboBoxStart.getSelectedItem();
+                ComboBoxList endId = (ComboBoxList) JDialogProfit.this.jComboBoxEnd.getSelectedItem();
+                selectProfitWithParam(startId.getId(), endId.getId());
+                autoCalulateTable();
+            } else if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_A) {
+            } else if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_D) {
+            }
+        }
     }
 
 }

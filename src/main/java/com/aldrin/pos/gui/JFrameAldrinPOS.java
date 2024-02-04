@@ -4,6 +4,7 @@
  */
 package com.aldrin.pos.gui;
 
+import com.aldrin.pos.POSController;
 import com.aldrin.pos.gui.dialog.ProductToPrint;
 import com.aldrin.pos.gui.dialog.JDialogProfit;
 import com.aldrin.pos.gui.dialog.JDialogUserSales;
@@ -18,8 +19,8 @@ import com.aldrin.pos.data.dao.impl.InvoiceEntryDAOImpl;
 import com.aldrin.pos.data.dao.impl.ProductDAOImpl;
 import com.aldrin.pos.data.dao.impl.StockInEntryDAOImpl;
 import com.aldrin.pos.gui.dialog.JDialogCategory;
+import com.aldrin.pos.gui.dialog.JDialogChangePassword;
 import com.aldrin.pos.gui.dialog.JDialogProduct;
-import com.aldrin.pos.gui.dialog.JDialogRole;
 import com.aldrin.pos.gui.dialog.JDialogTransporter;
 import com.aldrin.pos.gui.dialog.JDialogUnit;
 import com.aldrin.pos.gui.dialog.JDialogUserAccount;
@@ -45,6 +46,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
 import java.awt.print.Printable;
@@ -60,6 +63,7 @@ import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
@@ -115,9 +119,14 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         editor = (JTextComponent) jComboBoxProduct.getEditor().getEditorComponent();
         editor.addKeyListener(new ComboBoxItemKeyListener());
         editor.setDocument(new ComboBoxAutoFill(jComboBoxProduct));
-        editor.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "SEARCH PRODUCT");
         jScrollPane1.setFocusable(false);
         jTableDispense.setFocusable(false);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                quitApp();
+            }
+        });
         Font font;
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(84f);
@@ -127,8 +136,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         } catch (IOException ex) {
             Logger.getLogger(JFrameAldrinPOS.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     /**
@@ -197,6 +205,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jLabeltxtChange = new javax.swing.JLabel();
         jPanel53 = new javax.swing.JPanel();
         jLabelChange = new javax.swing.JLabel();
+        jPanel64 = new javax.swing.JPanel();
         jPanel45 = new javax.swing.JPanel();
         jPanel46 = new javax.swing.JPanel();
         jPanel33 = new javax.swing.JPanel();
@@ -262,9 +271,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonSale1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuUser = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuManage = new javax.swing.JMenu();
@@ -336,7 +344,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel57.setOpaque(false);
         jPanel57.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabelItems.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelItems.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabelItems.setForeground(new java.awt.Color(102, 102, 102));
         jLabelItems.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelItems.setText("0");
         jPanel57.add(jLabelItems);
@@ -348,6 +357,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel58.setLayout(new java.awt.GridLayout(0, 1));
 
         jLabelCash3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCash3.setForeground(new java.awt.Color(102, 102, 102));
         jLabelCash3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelCash3.setText("ITEMS:");
         jPanel58.add(jLabelCash3);
@@ -362,7 +372,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel59.setOpaque(false);
         jPanel59.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabeltxtCash4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabeltxtCash4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabeltxtCash4.setForeground(new java.awt.Color(102, 102, 102));
         jLabeltxtCash4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabeltxtCash4.setText("0.00");
         jPanel59.add(jLabeltxtCash4);
@@ -374,6 +385,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel60.setLayout(new java.awt.GridLayout(0, 1));
 
         jLabelCash4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCash4.setForeground(new java.awt.Color(102, 102, 102));
         jLabelCash4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelCash4.setText("GROSS AMOUNT:");
         jPanel60.add(jLabelCash4);
@@ -388,7 +400,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel51.setOpaque(false);
         jPanel51.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabeltxtCash1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabeltxtCash1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabeltxtCash1.setForeground(new java.awt.Color(102, 102, 102));
         jLabeltxtCash1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabeltxtCash1.setText("0.00");
         jPanel51.add(jLabeltxtCash1);
@@ -400,6 +413,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel54.setLayout(new java.awt.GridLayout(0, 1));
 
         jLabelCash1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCash1.setForeground(new java.awt.Color(102, 102, 102));
         jLabelCash1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelCash1.setText("DISCOUNT:");
         jPanel54.add(jLabelCash1);
@@ -414,7 +428,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel55.setOpaque(false);
         jPanel55.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabeltxtCash2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabeltxtCash2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabeltxtCash2.setForeground(new java.awt.Color(102, 102, 102));
         jLabeltxtCash2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabeltxtCash2.setText("0.00");
         jPanel55.add(jLabeltxtCash2);
@@ -426,6 +441,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel56.setLayout(new java.awt.GridLayout(0, 1));
 
         jLabelCash2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCash2.setForeground(new java.awt.Color(102, 102, 102));
         jLabelCash2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelCash2.setText("TAX:");
         jPanel56.add(jLabelCash2);
@@ -449,13 +465,12 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanelFrameContainer.setPreferredSize(new java.awt.Dimension(260, 200));
         jPanelFrameContainer.setLayout(new java.awt.BorderLayout());
 
-        jPanelGrandTotal.setBackground(new java.awt.Color(0, 153, 102));
+        jPanelGrandTotal.setBackground(new java.awt.Color(204, 204, 204));
         jPanelGrandTotal.setPreferredSize(new java.awt.Dimension(260, 0));
         jPanelGrandTotal.setLayout(new java.awt.BorderLayout());
 
-        jLabelTotal.setBackground(new java.awt.Color(0, 204, 153));
         jLabelTotal.setFont(new java.awt.Font("Courier New", 0, 52)); // NOI18N
-        jLabelTotal.setForeground(new java.awt.Color(153, 0, 0));
+        jLabelTotal.setForeground(new java.awt.Color(102, 102, 102));
         jLabelTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTotal.setText("0.00");
         jLabelTotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -545,7 +560,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel61.setOpaque(false);
         jPanel61.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabeltxtAmountDue.setForeground(new java.awt.Color(153, 0, 0));
+        jLabeltxtAmountDue.setForeground(new java.awt.Color(102, 102, 102));
         jLabeltxtAmountDue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabeltxtAmountDue.setText("0.00");
         jPanel61.add(jLabeltxtAmountDue);
@@ -556,7 +571,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel62.setPreferredSize(new java.awt.Dimension(150, 240));
         jPanel62.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabelAmountDue.setForeground(new java.awt.Color(153, 0, 0));
+        jLabelAmountDue.setForeground(new java.awt.Color(102, 102, 102));
         jLabelAmountDue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelAmountDue.setText("AMOUNT DUE:");
         jPanel62.add(jLabelAmountDue);
@@ -618,6 +633,22 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel50.add(jPanelChange);
 
         jPanel27.add(jPanel50, java.awt.BorderLayout.CENTER);
+
+        jPanel64.setOpaque(false);
+        jPanel64.setPreferredSize(new java.awt.Dimension(330, 5));
+
+        javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
+        jPanel64.setLayout(jPanel64Layout);
+        jPanel64Layout.setHorizontalGroup(
+            jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+        jPanel64Layout.setVerticalGroup(
+            jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        jPanel27.add(jPanel64, java.awt.BorderLayout.SOUTH);
 
         jPanel44.add(jPanel27, java.awt.BorderLayout.CENTER);
 
@@ -1052,6 +1083,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         });
         jPanel21.add(jToggleButton1);
 
+        jButton5.setIcon(new FlatSVGIcon("svg/keyboard.svg",32,32));
         jButton5.setToolTipText("Manual entry");
         jButton5.setFocusable(false);
         jButton5.setMargin(new java.awt.Insets(2, 2, 2, 2));
@@ -1167,7 +1199,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel24.setFocusable(false);
         jPanel24.setLayout(new java.awt.BorderLayout());
 
-        jToolBar1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(102, 102, 102)));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         jToolBar1.setRollover(true);
         jToolBar1.setFocusable(false);
 
@@ -1265,21 +1297,32 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jMenuUser.setText("File");
         jMenuUser.setFocusable(false);
 
-        jMenuItem7.setIcon(new FlatSVGIcon("svg/login.svg",16,16));
-        jMenuItem7.setText("Login");
-        jMenuUser.add(jMenuItem7);
-
-        jMenuItem8.setIcon(new FlatSVGIcon("svg/logout.svg",16,16));
-        jMenuItem8.setText("Logout");
-        jMenuUser.add(jMenuItem8);
-
-        jMenuItem9.setIcon(new FlatSVGIcon("svg/change password.svg",16,16));
+        jMenuItem9.setIcon(new FlatSVGIcon("svg/change password.svg",20,20));
         jMenuItem9.setText("Change Password");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenuUser.add(jMenuItem9);
+
+        jMenuItem8.setIcon(new FlatSVGIcon("svg/logout.svg",20,20));
+        jMenuItem8.setText("Logout");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenuUser.add(jMenuItem8);
         jMenuUser.add(jSeparator1);
 
-        jMenuItem10.setIcon(new FlatSVGIcon("svg/close.svg",16,16));
+        jMenuItem10.setIcon(new FlatSVGIcon("svg/close.svg",20,20));
         jMenuItem10.setText("Exit");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenuUser.add(jMenuItem10);
 
         jMenuBar1.add(jMenuUser);
@@ -1525,7 +1568,10 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private void jMenuItemDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDarkActionPerformed
         SwingUtilities.invokeLater(() -> {
             try {
-                svgColorChange(new java.awt.Color(169, 169, 169));
+//                svgColorChange(new java.awt.Color(135,206,250));//LightSkyBlue
+//                svgColorChange(new java.awt.Color(175,238,238));//PaleTurquoise
+//                svgColorChange(new java.awt.Color(46,139,87));//SeaGreen
+                svgColorChange(new java.awt.Color(135,206,235));//SeaGreen
                 UIManager.setLookAndFeel(new FlatDarkLaf());
                 SwingUtilities.updateComponentTreeUI(this);
             } catch (UnsupportedLookAndFeelException ex) {
@@ -1535,6 +1581,20 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         });
 
     }//GEN-LAST:event_jMenuItemDarkActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        JDialogChangePassword changePassword = new JDialogChangePassword(this, true, userAccount);
+        changePassword.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        this.dispose();
+        new POSController(new JFrameLogin());
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        quitApp();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1596,7 +1656,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemDark;
@@ -1664,6 +1723,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private javax.swing.JPanel jPanel61;
     private javax.swing.JPanel jPanel62;
     private javax.swing.JPanel jPanel63;
+    private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -2452,6 +2512,36 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
      */
     public void setjMenuSetting(javax.swing.JMenu jMenuSetting) {
         this.jMenuSetting = jMenuSetting;
+    }
+
+    private void quitApp() {
+        try {
+            int reply = JOptionPane.showConfirmDialog(this,
+                    "Are you sure to exit AldrinPOS application?",
+                    "AldrinPOS - Exit", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (reply == JOptionPane.YES_OPTION) {
+                System.exit(0);        //Close the Application.
+            } else if (reply == JOptionPane.NO_OPTION) {
+                setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * @return the jButtonStockIn
+     */
+    public javax.swing.JButton getjButtonStockIn() {
+        return jButtonStockIn;
+    }
+
+    /**
+     * @param jButtonStockIn the jButtonStockIn to set
+     */
+    public void setjButtonStockIn(javax.swing.JButton jButtonStockIn) {
+        this.jButtonStockIn = jButtonStockIn;
     }
 
 }

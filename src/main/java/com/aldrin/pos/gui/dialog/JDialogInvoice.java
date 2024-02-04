@@ -150,7 +150,7 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         jPanel2.setPreferredSize(new java.awt.Dimension(964, 50));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 10));
 
-        jButton1.setIcon(new FlatSVGIcon("svg/new.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/file.svg",24,24));
         jButton1.setText("New");
         jButton1.setMargin(new java.awt.Insets(2, 2, 3, 2));
         jButton1.setPreferredSize(new java.awt.Dimension(80, 32));
@@ -161,7 +161,7 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         });
         jPanel2.add(jButton1);
 
-        jButtonPreview.setIcon(new FlatSVGIcon("svg/preview.svg"));
+        jButtonPreview.setIcon(new FlatSVGIcon("svg/preview.svg",24,24));
         jButtonPreview.setText("Preview");
         jButtonPreview.setMargin(new java.awt.Insets(2, 2, 3, 2));
         jButtonPreview.setPreferredSize(new java.awt.Dimension(80, 32));

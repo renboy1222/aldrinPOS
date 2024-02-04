@@ -10,16 +10,20 @@ import com.aldrin.pos.data.dao.impl.UserAccountDAOImpl;
 import com.aldrin.pos.data.dao.impl.UserSales;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.model.StockInEntry;
+import com.aldrin.pos.util.ComboBoxAutoFill;
 import com.aldrin.pos.util.ComboBoxList;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.text.JTextComponent;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
@@ -37,6 +41,7 @@ public class JDialogUserSalesReport extends javax.swing.JDialog implements Actio
     private JFrameAldrinPOS jFrameSariPOS;
     private StockInEntry stockInEntry;
     private DecimalFormat df = new DecimalFormat("##,##0.00");
+    private JTextComponent editor;
 
     public JDialogUserSalesReport(JFrameAldrinPOS jFrameSariPOS, boolean modal) {
         super(jFrameSariPOS, modal);
@@ -49,6 +54,17 @@ public class JDialogUserSalesReport extends javax.swing.JDialog implements Actio
         comboBoxStart();
         comboBoxEnd();
         showReport();
+
+        jComboBoxStart.setEditable(true);
+        editor = (JTextComponent) jComboBoxStart.getEditor().getEditorComponent();
+        editor.addKeyListener(new JDialogUserSalesReport.ComboBoxItemKeyListener());
+        editor.setDocument(new ComboBoxAutoFill(jComboBoxStart));
+
+        jComboBoxEnd.setEditable(true);
+        editor = (JTextComponent) jComboBoxEnd.getEditor().getEditorComponent();
+        editor.addKeyListener(new JDialogUserSalesReport.ComboBoxItemKeyListener());
+        editor.setDocument(new ComboBoxAutoFill(jComboBoxEnd));
+
         jComboBoxStart.addActionListener(this);
         jComboBoxEnd.addActionListener(this);
 
@@ -303,7 +319,22 @@ public class JDialogUserSalesReport extends javax.swing.JDialog implements Actio
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        showReport();
+        try {
+            showReport();
+        } catch (Exception ex) {
+
+        }
+    }
+
+    class ComboBoxItemKeyListener extends KeyAdapter {
+
+        public void keyPressed(KeyEvent evt) {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                showReport();
+            } else if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_A) {
+            } else if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_D) {
+            }
+        }
     }
 
 }

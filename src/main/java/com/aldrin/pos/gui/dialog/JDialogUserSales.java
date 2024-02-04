@@ -9,12 +9,15 @@ import com.aldrin.pos.data.dao.impl.UserSales;
 import com.aldrin.pos.gui.dialog.report.JDialogUserSalesReport;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.model.StockInEntry;
+import com.aldrin.pos.util.ComboBoxAutoFill;
 import com.aldrin.pos.util.ComboBoxList;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -22,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -35,6 +39,7 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
     private JFrameAldrinPOS jFrameSariPOS = new JFrameAldrinPOS();
     private StockInEntry stockInEntry;
     private DecimalFormat df = new DecimalFormat("##,##0.00");
+    private JTextComponent editor;
 
     public JDialogUserSales(JFrameAldrinPOS jFrameSariPOS, boolean modal) {
         super(jFrameSariPOS, modal);
@@ -45,13 +50,34 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
                 "[light]border: 0,0,0,0,shade(@background,30%),,18;" + "[dark]border: 0,0,0,0,tint(@background,30%),,8");
         setTitle("USER SALES");
         setTable();
+
         comboBoxStart();
-        comboBoxEnd();
         jComboBoxStart.addActionListener(this);
+        comboBoxEnd();
         jComboBoxEnd.addActionListener(this);
 
-        selectUserSales();
+//        selectUserSales();
+        int selectedStart = jComboBoxStart.getSelectedIndex();
+        int selectedEnd = jComboBoxEnd.getSelectedIndex();
+        if (selectedStart == -1 && selectedEnd == -1) {
+            return;
+        } else {
+            ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
+            ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
+            selectUserSalesWithParam(startId.getId(), endId.getId());
+            autoCalulateTable();
+        }
         autoCalulateTable();
+
+        jComboBoxStart.setEditable(true);
+        editor = (JTextComponent) jComboBoxStart.getEditor().getEditorComponent();
+        editor.addKeyListener(new JDialogUserSales.ComboBoxItemKeyListener());
+        editor.setDocument(new ComboBoxAutoFill(jComboBoxStart));
+
+        jComboBoxEnd.setEditable(true);
+        editor = (JTextComponent) jComboBoxEnd.getEditor().getEditorComponent();
+        editor.addKeyListener(new JDialogUserSales.ComboBoxItemKeyListener());
+        editor.setDocument(new ComboBoxAutoFill(jComboBoxEnd));
 
     }
 
@@ -244,7 +270,7 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
     }//GEN-LAST:event_jButtonPreviewReportActionPerformed
 
     private void jComboBoxEndPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxEndPropertyChange
-    
+
     }//GEN-LAST:event_jComboBoxEndPropertyChange
 
 
@@ -388,15 +414,38 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int selectedStart = jComboBoxStart.getSelectedIndex();
-        int selectedEnd = jComboBoxEnd.getSelectedIndex();
-        if (selectedStart == -1 && selectedEnd == -1) {
-            return;
-        } else {
-            ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
-            ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
-            selectUserSalesWithParam(startId.getId(), endId.getId());
-            autoCalulateTable();
+        try {
+            int selectedStart = jComboBoxStart.getSelectedIndex();
+            int selectedEnd = jComboBoxEnd.getSelectedIndex();
+            if (selectedStart == -1 && selectedEnd == -1) {
+                return;
+            } else {
+                ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
+                ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
+                selectUserSalesWithParam(startId.getId(), endId.getId());
+                autoCalulateTable();
+            }
+        } catch (Exception ex) {
+        }
+    }
+
+    class ComboBoxItemKeyListener extends KeyAdapter {
+
+        public void keyPressed(KeyEvent evt) {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                int selectedStart = jComboBoxStart.getSelectedIndex();
+                int selectedEnd = jComboBoxEnd.getSelectedIndex();
+                if (selectedStart == -1 && selectedEnd == -1) {
+                    return;
+                } else {
+                    ComboBoxList startId = (ComboBoxList) JDialogUserSales.this.jComboBoxStart.getSelectedItem();
+                    ComboBoxList endId = (ComboBoxList) JDialogUserSales.this.jComboBoxEnd.getSelectedItem();
+                    selectUserSalesWithParam(startId.getId(), endId.getId());
+                    autoCalulateTable();
+                }
+            } else if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_A) {
+            } else if (evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_D) {
+            }
         }
     }
 
