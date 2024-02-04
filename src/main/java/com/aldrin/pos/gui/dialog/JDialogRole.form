@@ -178,7 +178,7 @@
             <Component class="javax.swing.JButton" name="jButtonNew">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new FlatSVGIcon(&quot;svg/new.svg&quot;)" type="code"/>
+                  <Connection code="new FlatSVGIcon(&quot;svg/add.svg&quot;,24,24)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="New"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -195,7 +195,7 @@
             <Component class="javax.swing.JButton" name="jButtonUpdate">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new FlatSVGIcon(&quot;svg/update.svg&quot;)" type="code"/>
+                  <Connection code="new FlatSVGIcon(&quot;svg/edit.svg&quot;,24,24)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Update"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -212,7 +212,7 @@
             <Component class="javax.swing.JButton" name="jButtonDelete">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new FlatSVGIcon(&quot;svg/delete.svg&quot;)" type="code"/>
+                  <Connection code="new FlatSVGIcon(&quot;svg/delete.svg&quot;,24,24)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">

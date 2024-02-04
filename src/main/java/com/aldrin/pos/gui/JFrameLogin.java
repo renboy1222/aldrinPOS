@@ -26,7 +26,7 @@ public class JFrameLogin extends javax.swing.JFrame {
      */
     public JFrameLogin() {
         initComponents();
-        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(187, 187, 187));
+//        getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(187, 187, 187));
         FlatSVGIcon icon = new FlatSVGIcon("svg/user.svg");
         setIconImage(icon.getImage());
         try {
@@ -66,6 +66,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldUsername = new javax.swing.JTextField();
@@ -76,10 +77,15 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabelTitle = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        jLabel6.setText("jLabel6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -124,20 +130,27 @@ public class JFrameLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setBackground(new java.awt.Color(187, 187, 187));
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 10));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Freeware");
-        jLabel4.setOpaque(true);
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 180, 190, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("ALDRIN");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aldrinPOS.png"))); // NOI18N
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("POS");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 177, 110, 80));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
         jLabel3.setOpaque(true);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 200, 100));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 220));
+
+        jLabel7.setText("Freeware");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 235, 190, -1));
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.EAST);
 
@@ -161,6 +174,9 @@ public class JFrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelErrorMessage;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanel1;

@@ -23,6 +23,8 @@ public class HoldOrder {
     private String unit;
     private String product;
     private String quantity;
+    private String priceUf;
+    private String linePriceUf;
     private String price;
     private String linePrice;
     private static ArrayList<HoldOrder> holdOrderList;
@@ -31,10 +33,12 @@ public class HoldOrder {
 
     }
 
-    public HoldOrder(String stockInId, String unit, String product, String quantity, String price, String lineTotal) {
+    public HoldOrder(String stockInId, String unit, String product, String quantity, String priceUf, String lineTotalUf,String price, String lineTotal) {
         this.stockInId = stockInId;
         this.unit = unit;
         this.quantity = quantity;
+        this.priceUf = priceUf;
+        this.linePriceUf = lineTotalUf;
         this.price = price;
         this.linePrice = lineTotal;
         this.product = product;

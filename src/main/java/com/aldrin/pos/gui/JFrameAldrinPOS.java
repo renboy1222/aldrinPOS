@@ -117,8 +117,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jTableDispense.setFocusable(false);
     }
 
-   
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,6 +135,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel41 = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
         jPanel27 = new javax.swing.JPanel();
+        jPanel47 = new javax.swing.JPanel();
+        jPanel42 = new javax.swing.JPanel();
         jPanel43 = new javax.swing.JPanel();
         jPanelCash3 = new javax.swing.JPanel();
         jPanel57 = new javax.swing.JPanel();
@@ -158,6 +158,15 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jLabeltxtCash2 = new javax.swing.JLabel();
         jPanel56 = new javax.swing.JPanel();
         jLabelCash2 = new javax.swing.JLabel();
+        jPanel63 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanelFrameContainer = new javax.swing.JPanel();
+        jPanelGrandTotal = new javax.swing.JPanel();
+        jLabelTotal = new javax.swing.JLabel();
+        jPanel29 = new javax.swing.JPanel();
+        jPanel30 = new javax.swing.JPanel();
+        jPanel31 = new javax.swing.JPanel();
+        jPanel32 = new javax.swing.JPanel();
         jPanel50 = new javax.swing.JPanel();
         jPanelTotal = new javax.swing.JPanel();
         jPanel61 = new javax.swing.JPanel();
@@ -176,7 +185,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jLabelChange = new javax.swing.JLabel();
         jPanel45 = new javax.swing.JPanel();
         jPanel46 = new javax.swing.JPanel();
-        jPanel47 = new javax.swing.JPanel();
         jPanel33 = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
         jPanel35 = new javax.swing.JPanel();
@@ -196,7 +204,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jPanelButtons = new javax.swing.JPanel();
-        jButtonQtyAdd = new javax.swing.JButton(new FlatSVGIcon("svg/plus.svg",24,24));
+        jButtonQtyAdd = new javax.swing.JButton(new FlatSVGIcon("svg/add.svg",24,24));
         jLabel1 = new javax.swing.JLabel();
         jButtonQtyMinus = new javax.swing.JButton(new FlatSVGIcon("svg/minus.svg",24,24));
         jLabel2 = new javax.swing.JLabel();
@@ -204,22 +212,18 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jLabel6 = new javax.swing.JLabel();
         jButtonQtyRemove = new javax.swing.JButton(new FlatSVGIcon("svg/remove.svg",24,24));
         jPanelButtons1 = new javax.swing.JPanel();
-        jButtonNewDispense = new javax.swing.JButton(new FlatSVGIcon("svg/new.svg",24,24));
+        jButtonNewDispense = new javax.swing.JButton(new FlatSVGIcon("svg/file.svg",24,24));
         jLabel3 = new javax.swing.JLabel();
         jButtonHold = new javax.swing.JButton(new FlatSVGIcon("svg/hold.svg",24,24));
         jLabel4 = new javax.swing.JLabel();
         jButtonPayment = new javax.swing.JButton(new FlatSVGIcon("svg/payment.svg",24,24));
         jPanel20 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanelFrameContainer = new javax.swing.JPanel();
-        jPanelGrandTotal = new javax.swing.JPanel();
-        jLabelTotal = new javax.swing.JLabel();
-        jPanel29 = new javax.swing.JPanel();
-        jPanel30 = new javax.swing.JPanel();
-        jPanel31 = new javax.swing.JPanel();
-        jPanel32 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -228,6 +232,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel22 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jButton5 = new javax.swing.JButton();
         jPanel37 = new javax.swing.JPanel();
         jPanel38 = new javax.swing.JPanel();
         jPanel39 = new javax.swing.JPanel();
@@ -249,7 +254,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuManage = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuSetting = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -302,8 +306,14 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel27.setOpaque(false);
         jPanel27.setLayout(new java.awt.BorderLayout());
 
+        jPanel47.setOpaque(false);
+        jPanel47.setPreferredSize(new java.awt.Dimension(340, 280));
+        jPanel47.setLayout(new java.awt.BorderLayout());
+
+        jPanel42.setLayout(new java.awt.BorderLayout());
+
         jPanel43.setOpaque(false);
-        jPanel43.setPreferredSize(new java.awt.Dimension(0, 250));
+        jPanel43.setPreferredSize(new java.awt.Dimension(0, 280));
         jPanel43.setLayout(new java.awt.GridLayout(0, 1));
 
         jPanelCash3.setOpaque(false);
@@ -410,7 +420,106 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
         jPanel43.add(jPanelCash2);
 
-        jPanel27.add(jPanel43, java.awt.BorderLayout.NORTH);
+        jPanel42.add(jPanel43, java.awt.BorderLayout.CENTER);
+
+        jPanel47.add(jPanel42, java.awt.BorderLayout.CENTER);
+
+        jPanel63.setOpaque(false);
+        jPanel63.setPreferredSize(new java.awt.Dimension(330, 130));
+        jPanel63.setLayout(new java.awt.BorderLayout());
+
+        jPanel10.setFocusable(false);
+        jPanel10.setPreferredSize(new java.awt.Dimension(350, 80));
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jPanelFrameContainer.setPreferredSize(new java.awt.Dimension(260, 200));
+        jPanelFrameContainer.setLayout(new java.awt.BorderLayout());
+
+        jPanelGrandTotal.setBackground(new java.awt.Color(0, 153, 102));
+        jPanelGrandTotal.setPreferredSize(new java.awt.Dimension(260, 0));
+        jPanelGrandTotal.setLayout(new java.awt.BorderLayout());
+
+        jLabelTotal.setBackground(new java.awt.Color(0, 204, 153));
+        jLabelTotal.setFont(new java.awt.Font("Courier New", 0, 52)); // NOI18N
+        jLabelTotal.setForeground(new java.awt.Color(153, 0, 0));
+        jLabelTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotal.setText("0.00");
+        jLabelTotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelGrandTotal.add(jLabelTotal, java.awt.BorderLayout.CENTER);
+
+        jPanelFrameContainer.add(jPanelGrandTotal, java.awt.BorderLayout.CENTER);
+
+        jPanel29.setOpaque(false);
+        jPanel29.setPreferredSize(new java.awt.Dimension(270, 2));
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+
+        jPanelFrameContainer.add(jPanel29, java.awt.BorderLayout.NORTH);
+
+        jPanel30.setOpaque(false);
+        jPanel30.setPreferredSize(new java.awt.Dimension(270, 2));
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+
+        jPanelFrameContainer.add(jPanel30, java.awt.BorderLayout.SOUTH);
+
+        jPanel31.setOpaque(false);
+        jPanel31.setPreferredSize(new java.awt.Dimension(2, 0));
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanelFrameContainer.add(jPanel31, java.awt.BorderLayout.EAST);
+
+        jPanel32.setOpaque(false);
+        jPanel32.setPreferredSize(new java.awt.Dimension(2, 0));
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanelFrameContainer.add(jPanel32, java.awt.BorderLayout.WEST);
+
+        jPanel10.add(jPanelFrameContainer, java.awt.BorderLayout.CENTER);
+
+        jPanel63.add(jPanel10, java.awt.BorderLayout.CENTER);
+
+        jPanel47.add(jPanel63, java.awt.BorderLayout.NORTH);
+
+        jPanel27.add(jPanel47, java.awt.BorderLayout.NORTH);
 
         jPanel50.setOpaque(false);
         jPanel50.setPreferredSize(new java.awt.Dimension(330, 350));
@@ -509,7 +618,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         );
         jPanel45Layout.setVerticalGroup(
             jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGap(0, 506, Short.MAX_VALUE)
         );
 
         jPanel44.add(jPanel45, java.awt.BorderLayout.WEST);
@@ -525,26 +634,10 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         );
         jPanel46Layout.setVerticalGroup(
             jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGap(0, 506, Short.MAX_VALUE)
         );
 
         jPanel44.add(jPanel46, java.awt.BorderLayout.EAST);
-
-        jPanel47.setOpaque(false);
-        jPanel47.setPreferredSize(new java.awt.Dimension(340, 5));
-
-        javax.swing.GroupLayout jPanel47Layout = new javax.swing.GroupLayout(jPanel47);
-        jPanel47.setLayout(jPanel47Layout);
-        jPanel47Layout.setHorizontalGroup(
-            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
-        jPanel47Layout.setVerticalGroup(
-            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-
-        jPanel44.add(jPanel47, java.awt.BorderLayout.SOUTH);
 
         jPanelTotalDetails.add(jPanel44, java.awt.BorderLayout.CENTER);
 
@@ -692,6 +785,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel11.add(jPanel13, java.awt.BorderLayout.CENTER);
 
         jPanel17.setFocusable(false);
+        jPanel17.setPreferredSize(new java.awt.Dimension(798, 65));
         jPanel17.setLayout(new java.awt.BorderLayout());
 
         jPanel18.setFocusable(false);
@@ -707,7 +801,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonQtyAdd.setText("<html><center>Quantity<br><h4 style=\"color:red; padding:0; margin:0;\">[F5]</h4></center></html>");
         jButtonQtyAdd.setFocusable(false);
         jButtonQtyAdd.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButtonQtyAdd.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonQtyAdd.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonQtyAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonQtyAddActionPerformed(evt);
@@ -721,7 +815,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonQtyMinus.setText("<html><center>Quantity<br><h4 style=\"color:red; padding:0; margin:0;\">[F6]</h4></center></html>");
         jButtonQtyMinus.setFocusable(false);
         jButtonQtyMinus.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButtonQtyMinus.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonQtyMinus.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonQtyMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonQtyMinusActionPerformed(evt);
@@ -733,10 +827,9 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanelButtons.add(jLabel2);
 
         jButtonQtyEdit.setText("<html><center> Quantity<br><h4 style=\"color:red; padding:0; margin:0;\">[F7]</h4></center></html>");
-        jButtonQtyEdit.setActionCommand("<html><center> Quantity<br><h4 style=\"color:red; padding:0; margin:0;\">[F7]</h4></center></html>");
         jButtonQtyEdit.setFocusable(false);
         jButtonQtyEdit.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButtonQtyEdit.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonQtyEdit.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonQtyEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonQtyEditActionPerformed(evt);
@@ -752,7 +845,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonQtyRemove.setMargin(new java.awt.Insets(2, 2, 3, 2));
         jButtonQtyRemove.setMaximumSize(new java.awt.Dimension(120, 42));
         jButtonQtyRemove.setMinimumSize(new java.awt.Dimension(120, 42));
-        jButtonQtyRemove.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonQtyRemove.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonQtyRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonQtyRemoveActionPerformed(evt);
@@ -769,7 +862,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonNewDispense.setText("<html><center>New<br><h4 style=\"color:red; padding:0; margin:0;\">[F1]</h4></center></html>");
         jButtonNewDispense.setFocusable(false);
         jButtonNewDispense.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButtonNewDispense.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonNewDispense.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonNewDispense.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonNewDispenseActionPerformed(evt);
@@ -784,7 +877,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonHold.setText("<html><center>Hold<br><h4 style=\"color:red; padding:0; margin:0;\">[F4]</h4></center></html>");
         jButtonHold.setFocusable(false);
         jButtonHold.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButtonHold.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonHold.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonHold.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHoldActionPerformed(evt);
@@ -798,7 +891,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonPayment.setText("<html><center>Payment<br><h4 style=\"color:red; padding:0; margin:0;\">[Space]</h4></center></html>");
         jButtonPayment.setFocusable(false);
         jButtonPayment.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButtonPayment.setPreferredSize(new java.awt.Dimension(90, 60));
+        jButtonPayment.setPreferredSize(new java.awt.Dimension(90, 40));
         jButtonPayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPaymentActionPerformed(evt);
@@ -835,109 +928,38 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel5.add(jPanel8, java.awt.BorderLayout.CENTER);
 
         jPanel9.setFocusable(false);
-        jPanel9.setPreferredSize(new java.awt.Dimension(889, 60));
+        jPanel9.setPreferredSize(new java.awt.Dimension(889, 50));
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        jPanel10.setFocusable(false);
-        jPanel10.setPreferredSize(new java.awt.Dimension(350, 80));
-        jPanel10.setLayout(new java.awt.BorderLayout());
-
-        jPanelFrameContainer.setPreferredSize(new java.awt.Dimension(260, 200));
-        jPanelFrameContainer.setLayout(new java.awt.BorderLayout());
-
-        jPanelGrandTotal.setBackground(new java.awt.Color(0, 153, 102));
-        jPanelGrandTotal.setPreferredSize(new java.awt.Dimension(260, 0));
-        jPanelGrandTotal.setLayout(new java.awt.BorderLayout());
-
-        jLabelTotal.setBackground(new java.awt.Color(0, 204, 153));
-        jLabelTotal.setFont(new java.awt.Font("Courier New", 0, 48)); // NOI18N
-        jLabelTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelTotal.setText("0.00");
-        jLabelTotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanelGrandTotal.add(jLabelTotal, java.awt.BorderLayout.CENTER);
-
-        jPanelFrameContainer.add(jPanelGrandTotal, java.awt.BorderLayout.CENTER);
-
-        jPanel29.setOpaque(false);
-        jPanel29.setPreferredSize(new java.awt.Dimension(270, 2));
-
-        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
-        jPanel29.setLayout(jPanel29Layout);
-        jPanel29Layout.setHorizontalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-        jPanel29Layout.setVerticalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2, Short.MAX_VALUE)
-        );
-
-        jPanelFrameContainer.add(jPanel29, java.awt.BorderLayout.NORTH);
-
-        jPanel30.setOpaque(false);
-        jPanel30.setPreferredSize(new java.awt.Dimension(270, 2));
-
-        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
-        jPanel30.setLayout(jPanel30Layout);
-        jPanel30Layout.setHorizontalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-        jPanel30Layout.setVerticalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2, Short.MAX_VALUE)
-        );
-
-        jPanelFrameContainer.add(jPanel30, java.awt.BorderLayout.SOUTH);
-
-        jPanel31.setOpaque(false);
-        jPanel31.setPreferredSize(new java.awt.Dimension(5, 0));
-
-        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
-        jPanel31.setLayout(jPanel31Layout);
-        jPanel31Layout.setHorizontalGroup(
-            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        jPanel31Layout.setVerticalGroup(
-            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanelFrameContainer.add(jPanel31, java.awt.BorderLayout.EAST);
-
-        jPanel32.setOpaque(false);
-        jPanel32.setPreferredSize(new java.awt.Dimension(2, 0));
-
-        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
-        jPanel32.setLayout(jPanel32Layout);
-        jPanel32Layout.setHorizontalGroup(
-            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2, Short.MAX_VALUE)
-        );
-        jPanel32Layout.setVerticalGroup(
-            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanelFrameContainer.add(jPanel32, java.awt.BorderLayout.WEST);
-
-        jPanel10.add(jPanelFrameContainer, java.awt.BorderLayout.CENTER);
-
-        jPanel9.add(jPanel10, java.awt.BorderLayout.EAST);
-
         jPanel15.setFocusable(false);
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 10, 5));
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 105, Short.MAX_VALUE)
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
+        jButton1.setIcon(new FlatSVGIcon("svg/return.svg",32,32));
+        jButton1.setToolTipText("Return Dispense");
+        jButton1.setFocusable(false);
+        jButton1.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButton1.setPreferredSize(new java.awt.Dimension(42, 36));
+        jPanel15.add(jButton1);
+
+        jButton2.setIcon(new FlatSVGIcon("svg/edit-dispense.svg",24,24));
+        jButton2.setToolTipText("Edit Dispense");
+        jButton2.setFocusable(false);
+        jButton2.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButton2.setPreferredSize(new java.awt.Dimension(42, 36));
+        jPanel15.add(jButton2);
+
+        jButton3.setToolTipText("Add Coupon");
+        jButton3.setFocusable(false);
+        jButton3.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButton3.setPreferredSize(new java.awt.Dimension(42, 36));
+        jPanel15.add(jButton3);
+
+        jButton4.setIcon(new FlatSVGIcon("svg/discount.svg",24,24));
+        jButton4.setToolTipText("Add Discount");
+        jButton4.setFocusable(false);
+        jButton4.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButton4.setPreferredSize(new java.awt.Dimension(42, 36));
+        jPanel15.add(jButton4);
 
         jPanel9.add(jPanel15, java.awt.BorderLayout.CENTER);
 
@@ -958,14 +980,14 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel9.add(jPanel16, java.awt.BorderLayout.SOUTH);
 
         jPanel14.setFocusable(false);
-        jPanel14.setPreferredSize(new java.awt.Dimension(350, 35));
+        jPanel14.setPreferredSize(new java.awt.Dimension(380, 35));
         jPanel14.setLayout(new java.awt.BorderLayout());
 
         jPanel23.setFocusable(false);
         jPanel23.setPreferredSize(new java.awt.Dimension(520, 52));
         jPanel23.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
 
-        jTextFieldBarcode.setPreferredSize(new java.awt.Dimension(260, 42));
+        jTextFieldBarcode.setPreferredSize(new java.awt.Dimension(260, 36));
         jTextFieldBarcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBarcodeActionPerformed(evt);
@@ -979,7 +1001,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel23.add(jTextFieldBarcode);
 
         jComboBoxProduct.setFocusable(false);
-        jComboBoxProduct.setPreferredSize(new java.awt.Dimension(260, 42));
+        jComboBoxProduct.setPreferredSize(new java.awt.Dimension(260, 36));
         jPanel23.add(jComboBoxProduct);
 
         jPanel14.add(jPanel23, java.awt.BorderLayout.CENTER);
@@ -1001,19 +1023,25 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jPanel14.add(jPanel22, java.awt.BorderLayout.WEST);
 
         jPanel21.setFocusable(false);
-        jPanel21.setPreferredSize(new java.awt.Dimension(80, 55));
-        jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel21.setPreferredSize(new java.awt.Dimension(110, 55));
+        jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
 
         jToggleButton1.setIcon(new FlatSVGIcon("svg/barcode.svg",32,32));
         jToggleButton1.setFocusable(false);
         jToggleButton1.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jToggleButton1.setPreferredSize(new java.awt.Dimension(42, 42));
+        jToggleButton1.setPreferredSize(new java.awt.Dimension(42, 36));
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
         jPanel21.add(jToggleButton1);
+
+        jButton5.setToolTipText("Manual Entry");
+        jButton5.setFocusable(false);
+        jButton5.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButton5.setPreferredSize(new java.awt.Dimension(42, 36));
+        jPanel21.add(jButton5);
 
         jPanel14.add(jPanel21, java.awt.BorderLayout.EAST);
 
@@ -1027,7 +1055,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
         jPanel37.setFocusable(false);
         jPanel37.setOpaque(false);
-        jPanel37.setPreferredSize(new java.awt.Dimension(815, 7));
+        jPanel37.setPreferredSize(new java.awt.Dimension(815, 3));
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
@@ -1037,7 +1065,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         );
         jPanel37Layout.setVerticalGroup(
             jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 7, Short.MAX_VALUE)
+            .addGap(0, 3, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel37, java.awt.BorderLayout.NORTH);
@@ -1071,7 +1099,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         );
         jPanel39Layout.setVerticalGroup(
             jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGap(0, 505, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel39, java.awt.BorderLayout.EAST);
@@ -1088,7 +1116,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         );
         jPanel40Layout.setVerticalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGap(0, 505, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel40, java.awt.BorderLayout.LINE_START);
@@ -1128,7 +1156,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jToolBar1.setRollover(true);
         jToolBar1.setFocusable(false);
 
-        jButtonStockIn.setIcon(new FlatSVGIcon("svg/download.svg",42,42));
+        jButtonStockIn.setIcon(new FlatSVGIcon("svg/stockin.svg",32,32));
         jButtonStockIn.setToolTipText("Stock-in");
         jButtonStockIn.setFocusable(false);
         jButtonStockIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1144,7 +1172,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         });
         jToolBar1.add(jButtonStockIn);
 
-        jButtonDispense.setIcon(new FlatSVGIcon("svg/sales.svg",30,30));
+        jButtonDispense.setIcon(new FlatSVGIcon("svg/sales.svg",32,32));
         jButtonDispense.setToolTipText("Invoice List");
         jButtonDispense.setFocusable(false);
         jButtonDispense.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1176,7 +1204,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         });
         jToolBar1.add(jButtonProducts);
 
-        jButtonSale.setIcon(new FlatSVGIcon("svg/hand-holding-dollar.svg",28,28));
+        jButtonSale.setIcon(new FlatSVGIcon("svg/sale.svg",32,32));
         jButtonSale.setToolTipText("User Sales");
         jButtonSale.setFocusable(false);
         jButtonSale.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1192,7 +1220,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         });
         jToolBar1.add(jButtonSale);
 
-        jButtonSale1.setIcon(new FlatSVGIcon("svg/profit.svg",28,28));
+        jButtonSale1.setIcon(new FlatSVGIcon("svg/profit.svg",32,32));
         jButtonSale1.setToolTipText("Profit");
         jButtonSale1.setFocusable(false);
         jButtonSale1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1230,7 +1258,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jMenuItem8.setText("Logout");
         jMenuUser.add(jMenuItem8);
 
-        jMenuItem9.setIcon(new FlatSVGIcon("svg/password.svg",16,16));
+        jMenuItem9.setIcon(new FlatSVGIcon("svg/change password.svg",16,16));
         jMenuItem9.setText("Change Password");
         jMenuUser.add(jMenuItem9);
         jMenuUser.add(jSeparator1);
@@ -1244,17 +1272,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jMenuManage.setText("Manage");
         jMenuManage.setFocusable(false);
 
-        jMenuItem1.setIcon(new FlatSVGIcon("svg/role.svg",16,16));
-        jMenuItem1.setText("Role");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenuManage.add(jMenuItem1);
-
-        jMenuItem2.setIcon(new FlatSVGIcon("svg/users.svg",16,16));
-        jMenuItem2.setText("User");
+        jMenuItem2.setIcon(new FlatSVGIcon("svg/user.svg",16,16));
+        jMenuItem2.setText("User accounts");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -1331,11 +1350,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         setSize(new java.awt.Dimension(1186, 596));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        JDialogRole role = new JDialogRole(this, true);
-        role.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         JDialogUserAccount userAccount = new JDialogUserAccount(this, true);
@@ -1436,10 +1450,10 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
     private void jButtonHoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHoldActionPerformed
 
-        if (jButtonHold.getText().equals("<html><center>Unhold<br><h4 style=\"color:red; padding:0; margin:0;\">[F2]</h4></center></html>")) {
+        if (jButtonHold.getText().equals("<html><center>Unhold<br><h4 style=\"color:red; padding:0; margin:0;\">[F4]</h4></center></html>")) {
             int response = JOptionPane.showConfirmDialog(this, "Are you sure to unhold order?", "Hold confirmation!", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
-                jButtonHold.setText("<html><center>Hold<br><h4 style=\"color:red; padding:0; margin:0;\">[F2]</h4></center></html>");
+                jButtonHold.setText("<html><center>Hold<br><h4 style=\"color:red; padding:0; margin:0;\">[F4]</h4></center></html>");
                 tableModel.setRowCount(0);
                 unHoldOrderList();
                 jButtonHold.setForeground(Color.green);
@@ -1449,11 +1463,10 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 autoCalulateTable();
                 this.holdOrderList.clear();
             }
-        } else if (jButtonHold.getText().equals("<html><center>Hold<br><h4 style=\"color:red; padding:0; margin:0;\">[F2]</h4></center></html>")) {
+        } else if (jButtonHold.getText().equals("<html><center>Hold<br><h4 style=\"color:red; padding:0; margin:0;\">[F4]</h4></center></html>")) {
             int response = JOptionPane.showConfirmDialog(this, "Are you sure to hold order?", "Hold confirmation!", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
-
-                jButtonHold.setText("<html><center>Unhold<br><h4 style=\"color:red; padding:0; margin:0;\">[F2]</h4></center></html>");
+                jButtonHold.setText("<html><center>Unhold<br><h4 style=\"color:red; padding:0; margin:0;\">[F4]</h4></center></html>");
                 holdOrderList();
                 tableModel.setRowCount(0);
                 jButtonHold.setForeground(Color.red);
@@ -1497,7 +1510,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private void jMenuItemDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDarkActionPerformed
         SwingUtilities.invokeLater(() -> {
             try {
-                svgColorChange(new java.awt.Color(70,130,180));
+                svgColorChange(new java.awt.Color(169,169,169));
                 UIManager.setLookAndFeel(new FlatDarkLaf());
                 SwingUtilities.updateComponentTreeUI(this);
             } catch (UnsupportedLookAndFeelException ex) {
@@ -1522,6 +1535,11 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonDispense;
     private javax.swing.JButton jButtonHold;
     private javax.swing.JButton jButtonNewDispense;
@@ -1557,7 +1575,6 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private javax.swing.JLabel jLabeltxtChange;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -1608,6 +1625,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
     private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
@@ -1630,6 +1648,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private javax.swing.JPanel jPanel60;
     private javax.swing.JPanel jPanel61;
     private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1658,7 +1677,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
     private CategoryDAOImpl roleDAOImpl = new CategoryDAOImpl();
 
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICEUF", "LINE TOTALUF", "PRICE", "LINE TOTAL"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -1675,6 +1694,10 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 case 5:
                     return Integer.class;
                 case 6:
+                    return Integer.class;
+                case 7:
+                    return Integer.class;
+                case 8:
                     return Integer.class;
                 default:
                     return String.class;
@@ -1702,6 +1725,14 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         hide0.setMinWidth(0);
         hide0.setMaxWidth(0);
         hide0.setPreferredWidth(0);
+        TableColumn hide5 = jTableDispense.getColumnModel().getColumn(5);
+        hide5.setMinWidth(0);
+        hide5.setMaxWidth(0);
+        hide5.setPreferredWidth(0);
+        TableColumn hide6 = jTableDispense.getColumnModel().getColumn(6);
+        hide6.setMinWidth(0);
+        hide6.setMaxWidth(0);
+        hide6.setPreferredWidth(0);
 
 //"STOCK IN ID", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
         TableColumn[] column = new TableColumn[100];
@@ -1722,6 +1753,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
         column[6] = jTableDispense.getColumnModel().getColumn(6);
         column[6].setPreferredWidth(100);
+        
 
     }
 
@@ -1786,7 +1818,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         } else {
             int qty = 0;
             if (jTableDispense.getRowCount() == 0) {
-                tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying()});
+                tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying(), df.format(se.getPriceBuying()), df.format(se.getPriceBuying())});
                 jTextFieldBarcode.setText("");
                 return;
             } else {
@@ -1812,7 +1844,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                     }
                 }
                 if (multipleProduct == true) {
-                    tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying()});
+                    tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying(), df.format(se.getPriceBuying()), df.format(se.getPriceBuying())});
                 }
             }
             calculateLineTotal();
@@ -1829,6 +1861,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 Float lineTotal = Float.parseFloat(jTableDispense.getValueAt(i, 5).toString());
                 grandTotal = qty * lineTotal;
                 jTableDispense.setValueAt(grandTotal, i, 6);
+                jTableDispense.setValueAt(df.format(grandTotal), i, 8);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1871,6 +1904,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             } else {
                 jTableDispense.setValueAt(addQty, selected, 4);
                 jTableDispense.setValueAt(addQty * price, selected, 6);
+                jTableDispense.setValueAt(df.format(addQty * price), selected, 8);
                 jButtonQtyAdd.setEnabled(false);
                 jButtonQtyMinus.setEnabled(false);
                 jButtonQtyEdit.setEnabled(false);
@@ -1896,6 +1930,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 minusQty = qty - 1;
                 jTableDispense.setValueAt(minusQty, selected, 4);
                 jTableDispense.setValueAt(minusQty * price, selected, 6);
+                jTableDispense.setValueAt(df.format(minusQty * price), selected, 8);
 
                 jButtonQtyAdd.setEnabled(false);
                 jButtonQtyMinus.setEnabled(false);
@@ -1940,6 +1975,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
             jTableDispense.setValueAt(qty1, selected, 4);
             jTableDispense.setValueAt(qty1 * price, selected, 6);
+            jTableDispense.setValueAt(df.format(qty1 * price), selected, 8);
             jButtonQtyAdd.setEnabled(false);
             jButtonQtyMinus.setEnabled(false);
             jButtonQtyEdit.setEnabled(false);
@@ -2009,14 +2045,16 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
     private void holdOrderList() {
         for (int i = 0; i < jTableDispense.getRowCount(); i++) {
-//            "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
+//            "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICEUF", "LINE TOTALUF,"PRICE", "LINE TOTAL"
             String stockInId = jTableDispense.getValueAt(i, 0).toString();
             String unit = jTableDispense.getValueAt(i, 2).toString();
             String product = jTableDispense.getValueAt(i, 3).toString();
             String quantity = jTableDispense.getValueAt(i, 4).toString();
-            String price = jTableDispense.getValueAt(i, 5).toString();
-            String lineTotal = jTableDispense.getValueAt(i, 6).toString();
-            HoldOrder ho = new HoldOrder(stockInId, unit, product, quantity, price, lineTotal);
+            String priceuf = jTableDispense.getValueAt(i, 5).toString();
+            String lineTotaluf = jTableDispense.getValueAt(i, 6).toString();
+            String price = jTableDispense.getValueAt(i, 7).toString();
+            String lineTotal = jTableDispense.getValueAt(i, 8).toString();
+            HoldOrder ho = new HoldOrder(stockInId, unit, product, quantity, priceuf, lineTotaluf, price, lineTotal);
             holdOrderList.add(ho);
         }
     }
@@ -2024,7 +2062,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private void unHoldOrderList() {
 //            "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
         for (HoldOrder h : holdOrderList) {
-            tableModel.addRow(new Object[]{h.getStockInId(), jTableDispense.getRowCount() + 1, h.getUnit(), h.getProduct(), h.getQuantity(), h.getPrice(), h.getLinePrice()});
+            tableModel.addRow(new Object[]{h.getStockInId(), jTableDispense.getRowCount() + 1, h.getUnit(), h.getProduct(), h.getQuantity(), h.getPriceUf(), h.getLinePriceUf(), h.getPrice(), h.getLinePrice()});
         }
     }
 
@@ -2198,8 +2236,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             String unit = jTableDispense.getValueAt(i, 2).toString();
             String product = jTableDispense.getValueAt(i, 3).toString();
             String qty = jTableDispense.getValueAt(i, 4).toString();
-            String unitPrice = jTableDispense.getValueAt(i, 5).toString();
-            String lineTotal = jTableDispense.getValueAt(i, 6).toString();
+            String unitPrice = jTableDispense.getValueAt(i, 7).toString();
+            String lineTotal = jTableDispense.getValueAt(i, 8).toString();
             ProductToPrint itm = new ProductToPrint(no, unit, product, qty, unitPrice, lineTotal);
             iL.add(itm);
         }

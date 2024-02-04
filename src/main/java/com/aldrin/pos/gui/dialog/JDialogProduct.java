@@ -148,7 +148,7 @@ public class JDialogProduct extends javax.swing.JDialog implements MouseListener
 
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 10));
 
-        jButtonNew.setIcon(new FlatSVGIcon("svg/new.svg"));
+        jButtonNew.setIcon(new FlatSVGIcon("svg/add.svg",24,24));
         jButtonNew.setText("New");
         jButtonNew.setMargin(new java.awt.Insets(2, 2, 3, 2));
         jButtonNew.setPreferredSize(new java.awt.Dimension(80, 32));
@@ -159,7 +159,7 @@ public class JDialogProduct extends javax.swing.JDialog implements MouseListener
         });
         jPanel3.add(jButtonNew);
 
-        jButtonUpdate.setIcon(new FlatSVGIcon("svg/update.svg"));
+        jButtonUpdate.setIcon(new FlatSVGIcon("svg/edit.svg",24,24));
         jButtonUpdate.setText("Update");
         jButtonUpdate.setMargin(new java.awt.Insets(2, 2, 3, 2));
         jButtonUpdate.setPreferredSize(new java.awt.Dimension(80, 32));
@@ -170,7 +170,7 @@ public class JDialogProduct extends javax.swing.JDialog implements MouseListener
         });
         jPanel3.add(jButtonUpdate);
 
-        jButtonDelete.setIcon(new FlatSVGIcon("svg/delete.svg"));
+        jButtonDelete.setIcon(new FlatSVGIcon("svg/delete.svg",24,24));
         jButtonDelete.setText("Delete");
         jButtonDelete.setMargin(new java.awt.Insets(2, 2, 3, 2));
         jButtonDelete.setPreferredSize(new java.awt.Dimension(80, 32));

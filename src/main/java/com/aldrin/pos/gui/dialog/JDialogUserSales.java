@@ -13,6 +13,8 @@ import com.aldrin.pos.util.ComboBoxList;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -25,27 +27,28 @@ import javax.swing.table.TableRowSorter;
  *
  * @author ALRIN B.C.
  */
-public class JDialogUserSales extends javax.swing.JDialog {
+public class JDialogUserSales extends javax.swing.JDialog implements ActionListener {
 
     /**
      * Creates new form JDialogPreviewStockIn
      */
-    private JFrameAldrinPOS jFrameSariPOS =new JFrameAldrinPOS();
+    private JFrameAldrinPOS jFrameSariPOS = new JFrameAldrinPOS();
     private StockInEntry stockInEntry;
     private DecimalFormat df = new DecimalFormat("##,##0.00");
 
     public JDialogUserSales(JFrameAldrinPOS jFrameSariPOS, boolean modal) {
         super(jFrameSariPOS, modal);
-        this.jFrameSariPOS =jFrameSariPOS;
+        this.jFrameSariPOS = jFrameSariPOS;
         initComponents();
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(187, 187, 187));
         jPanelGrandTotal.putClientProperty(FlatClientProperties.STYLE,
                 "[light]border: 0,0,0,0,shade(@background,30%),,18;" + "[dark]border: 0,0,0,0,tint(@background,30%),,8");
         setTitle("USER SALES");
         setTable();
-
         comboBoxStart();
         comboBoxEnd();
+        jComboBoxStart.addActionListener(this);
+        jComboBoxEnd.addActionListener(this);
 
         selectUserSales();
         autoCalulateTable();
@@ -73,7 +76,6 @@ public class JDialogUserSales extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jComboBoxEnd = new javax.swing.JComboBox<>();
         jComboBoxStart = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
@@ -126,18 +128,14 @@ public class JDialogUserSales extends javax.swing.JDialog {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("START:");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
-        jPanel3.add(jComboBoxEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 220, 30));
-        jPanel3.add(jComboBoxStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 10, 220, 30));
 
-        jButton2.setIcon(new FlatSVGIcon("svg/search.svg",24,24));
-        jButton2.setText("SEARCH");
-        jButton2.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jComboBoxEnd.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboBoxEndPropertyChange(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 100, 30));
+        jPanel3.add(jComboBoxEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 220, 30));
+        jPanel3.add(jComboBoxStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 230, 30));
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -245,16 +243,12 @@ public class JDialogUserSales extends javax.swing.JDialog {
         report.setVisible(true);
     }//GEN-LAST:event_jButtonPreviewReportActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
-        ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
-        selectUserSalesWithParam(startId.getId(), endId.getId());
-        autoCalulateTable();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jComboBoxEndPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxEndPropertyChange
+    
+    }//GEN-LAST:event_jComboBoxEndPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonPreviewReport;
     private javax.swing.JComboBox<Object> jComboBoxEnd;
     private javax.swing.JComboBox<Object> jComboBoxStart;
@@ -389,6 +383,20 @@ public class JDialogUserSales extends javax.swing.JDialog {
         tableModel.setRowCount(0);
         for (UserSales us : userSalesList) {
             tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableUserSales.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), df.format(us.getSales())});
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int selectedStart = jComboBoxStart.getSelectedIndex();
+        int selectedEnd = jComboBoxEnd.getSelectedIndex();
+        if (selectedStart == -1 && selectedEnd == -1) {
+            return;
+        } else {
+            ComboBoxList startId = (ComboBoxList) this.jComboBoxStart.getSelectedItem();
+            ComboBoxList endId = (ComboBoxList) this.jComboBoxEnd.getSelectedItem();
+            selectUserSalesWithParam(startId.getId(), endId.getId());
+            autoCalulateTable();
         }
     }
 
