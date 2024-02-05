@@ -16,6 +16,7 @@ import com.aldrin.pos.util.ComboBoxList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import lombok.Getter;
@@ -100,6 +101,9 @@ public class InvoiceDAOImpl extends DBConnection implements InvoiceDAO {
                 ua.setSurname(rs.getString("SURNAME"));
 //                ua.setId(rs.getLong("ID"));
                 invoice.setCreatedAt(rs.getDate("CREATEDAT"));
+                invoice.setTimeStamp(rs.getTimestamp("CREATEDAT"));
+                
+               
 //                invoice.setTransporter(t);
                 invoice.setUserAccount(ua);
                 invoice.setId(rs.getLong("ID"));

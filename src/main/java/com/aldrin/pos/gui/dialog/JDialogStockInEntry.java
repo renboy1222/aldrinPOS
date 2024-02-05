@@ -531,7 +531,8 @@ TransporterDAOImpl transporterDAOImpl = new TransporterDAOImpl();
         Transporter t = new Transporter();
         t.setId(transporterId.getId());
         UserAccount u = new UserAccount();
-        u.setId(1l);
+        Long userId =jFrameSariPOS.userLogin.getId();
+        u.setId(userId);
         StockIn stockIn = new StockIn(t, u);
         stockInDAOImpl.addStockIn(stockIn);
 

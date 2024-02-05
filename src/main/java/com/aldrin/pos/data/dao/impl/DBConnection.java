@@ -22,10 +22,11 @@ public class DBConnection {
             try {
                 if (this.getCon() == null || this.getCon().isClosed()) {
                     try {
-                        String url = "jdbc:derby://localhost:1527/C:\\Users\\aldri\\Documents\\NetBeansProjects\\AldrinPOS\\pos_db;create=true;"; 
+//                        String url = "jdbc:derby://localhost:1527/C:\\Users\\aldri\\Documents\\NetBeansProjects\\AldrinPOS\\pos_db;create=true;"; 
                         Class.forName("org.apache.derby.jdbc.ClientDriver");
+                        String url = "jdbc:derby:pos_db;";
 //                        String url = "jdbc:derby:C:\\Users\\aldri\\Documents\\NetBeansProjects\\AldrinPOS\\sari_pos;create=true;";                
-//                        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+                        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
                         setCon(DriverManager.getConnection(url, "aldrin", "aldrin"));
                     } catch (Exception e) {
                         e.printStackTrace();

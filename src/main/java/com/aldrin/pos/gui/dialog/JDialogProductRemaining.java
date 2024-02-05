@@ -6,6 +6,7 @@ package com.aldrin.pos.gui.dialog;
 
 import com.aldrin.pos.data.dao.impl.ProductRemaining;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
+import com.aldrin.pos.gui.dialog.report.JDialogRemainingProductsReport;
 import com.aldrin.pos.model.StockInEntry;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
@@ -44,7 +45,7 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
         autoCalulateTable();
         jTextFieldSearch.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Search");
         //icon
-        jTextFieldSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("svg/search.svg",24,24));
+        jTextFieldSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("svg/search.svg", 24, 24));
 
     }
 
@@ -191,7 +192,7 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
         jPanel30.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 80, 30));
 
         jButton1.setIcon(new FlatSVGIcon("svg/print.svg",24,24));
-        jButton1.setText("Print Products");
+        jButton1.setText("Report");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -242,7 +243,8 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+        JDialogRemainingProductsReport report = new JDialogRemainingProductsReport(jFrameSariPOS, true);
+        report.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchKeyReleased
@@ -252,7 +254,7 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
         } else {
             sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text + ",*"));
             autoCalulateTable();
-            
+
         }
     }//GEN-LAST:event_jTextFieldSearchKeyReleased
 
@@ -288,11 +290,11 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
         productRemainingList = productRemaining.selectRemainingProduct();
         tableModel.setRowCount(0);
         for (ProductRemaining pr : productRemainingList) {
-            tableModel.addRow(new Object[]{jTableStockInEntry.getRowCount() + 1, pr.getCategory().getCategory(), pr.getProduct().getProduct(), pr.getUnit().getUnit(), pr.getQtyRemaining(),pr.getStockInEntry().getPriceBuying(), pr.getStockInEntry().getPriceSelling(),pr.getLineTotal()});
+            tableModel.addRow(new Object[]{jTableStockInEntry.getRowCount() + 1, pr.getCategory().getCategory(), pr.getProduct().getProduct(), pr.getUnit().getUnit(), pr.getQtyRemaining(), pr.getStockInEntry().getPriceBuying(), pr.getStockInEntry().getPriceSelling(), pr.getLineTotal()});
         }
     }
-    
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"#", "CATEGORY", "PRODUCT", "UNIT","QTY REMAINING",  "PRICE BUYING","PRICE SELLING", "LINETOTAL" }, 0) {
+
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"#", "CATEGORY", "PRODUCT", "UNIT", "QTY REMAINING", "PRICE BUYING", "PRICE SELLING", "LINETOTAL"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -336,10 +338,10 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
         jTableStockInEntry.setRowSorter(sorter);
 
         TableColumn[] column = new TableColumn[100];
-        
+
         column[0] = jTableStockInEntry.getColumnModel().getColumn(0);
         column[0].setPreferredWidth(30);
-        
+
         column[1] = jTableStockInEntry.getColumnModel().getColumn(1);
         column[1].setPreferredWidth(60);
 

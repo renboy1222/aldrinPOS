@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -44,7 +45,7 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         selectStockIn();
         jTextFieldSearch.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Search");
         //icon
-        jTextFieldSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("svg/search.svg",24,24));
+        jTextFieldSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("svg/search.svg", 24, 24));
         jButtonPreview.setEnabled(false);
     }
 
@@ -268,7 +269,9 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         invoiceList = invoiceDAOImpl.selectInvoice();
         tableModel.setRowCount(0);
         for (Invoice in : invoiceList) {
-            tableModel.addRow(new Object[]{in.getId(), in.getCreatedAt(), in.getUserAccount().getSurname() + ", " + in.getUserAccount().getFirstname(), df.format(in.getAmount())});
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss a");
+            String formattedTimestamp = dateFormat.format(in.getTimeStamp());
+            tableModel.addRow(new Object[]{in.getId(), formattedTimestamp, in.getUserAccount().getSurname() + ", " + in.getUserAccount().getFirstname(), df.format(in.getAmount())});
         }
     }
     public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"INOVICE ID", "CREATED", "USER", "AMOUNT"}, 0) {
@@ -342,8 +345,6 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
                         si.setUserAccount(u);
                         ie.setInvoice(si);
                         ie.setTotal(amount);
-                        
-                       
 
                         this.invoiceEntry = ie;
                         jButtonPreview.setEnabled(true);

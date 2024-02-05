@@ -107,6 +107,7 @@ public class StockInDAOImpl extends DBConnection implements StockInDAO {
                 t.setSurname(rs.getString("TSURNAME"));
                 t.setId(rs.getLong("TRANSPORTER_ID"));
                 s.setCreatedAt(rs.getDate("CREATEDAT"));
+                s.setTimestamp(rs.getTimestamp("CREATEDAT"));
                 s.setTransporter(t);
                 s.setUserAccount(ua);
                 s.setId(rs.getLong("ID"));

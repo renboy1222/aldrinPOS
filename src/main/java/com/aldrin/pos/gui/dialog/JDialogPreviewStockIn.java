@@ -6,6 +6,7 @@ package com.aldrin.pos.gui.dialog;
 
 import com.aldrin.pos.data.dao.impl.StockInEntryDAOImpl;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
+import com.aldrin.pos.gui.dialog.report.JDialogStockInReport;
 import com.aldrin.pos.model.StockInEntry;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
@@ -230,7 +231,9 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
-        // TODO add your handling code here:
+
+        JDialogStockInReport report = new JDialogStockInReport(jFrameSariPOS, true,stockInEntry);
+        report.setVisible(true);
     }//GEN-LAST:event_jButtonPrintActionPerformed
 
 
@@ -338,26 +341,7 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         hide0.setMinWidth(0);
         hide0.setMaxWidth(0);
         hide0.setPreferredWidth(0);
-//        TableColumn hide1 = jTableStockInEntry.getColumnModel().getColumn(1);
-//        hide1.setMinWidth(0);
-//        hide1.setMaxWidth(0);
-//        hide1.setPreferredWidth(0);
-//        TableColumn hide2 = jTableStockInEntry.getColumnModel().getColumn(2);
-//        hide2.setMinWidth(0);
-//        hide2.setMaxWidth(0);
-//        hide2.setPreferredWidth(0);
-//        TableColumn hide7 = jTableStockInEntry.getColumnModel().getColumn(7);
-//        hide7.setMinWidth(0);
-//        hide7.setMaxWidth(0);
-//        hide7.setPreferredWidth(0);
-//        TableColumn hide8 = jTableStockInEntry.getColumnModel().getColumn(8);
-//        hide8.setMinWidth(0);
-//        hide8.setMaxWidth(0);
-//        hide8.setPreferredWidth(0);
-//        TableColumn hide9 = jTableStockInEntry.getColumnModel().getColumn(11);
-//        hide9.setMinWidth(0);
-//        hide9.setMaxWidth(0);
-//        hide9.setPreferredWidth(0);
+
     }
 
     public void autoCalulateTable() {

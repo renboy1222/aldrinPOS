@@ -13,6 +13,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -258,10 +259,12 @@ public class JDialogStockIn extends javax.swing.JDialog implements MouseListener
         stockInList = stockInDAOImpl.selectStockIn();
         tableModel.setRowCount(0);
         for (StockIn c : stockInList) {
-            tableModel.addRow(new Object[]{c.getId(), c.getUserAccount().getId(), c.getTransporter().getId(), c.getCreatedAt(), c.getUserAccount().getSurname() + ", " + c.getUserAccount().getFirstname(), c.getTransporter().getSurname() + ", " + c.getTransporter().getFirstname()});
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss a");
+            String formattedTimestamp = dateFormat.format(c.getTimestamp());
+            tableModel.addRow(new Object[]{c.getId(), c.getUserAccount().getId(), c.getTransporter().getId(), formattedTimestamp, c.getUserAccount().getSurname() + ", " + c.getUserAccount().getFirstname(), c.getTransporter().getSurname() + ", " + c.getTransporter().getFirstname()});
         }
     }
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "USER ID", "TRANSPORTER ID", "CREATE AT", "USER", "PURCHASER"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "USER ID", "TRANSPORTER ID", "CREATED", "USER", "PURCHASER"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;

@@ -4,6 +4,7 @@
  */
 package com.aldrin.pos.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,4 +26,6 @@ public class Invoice {
     private Date createdAt;
 
     private Float amount;
+    
+    private Timestamp timeStamp;
 }

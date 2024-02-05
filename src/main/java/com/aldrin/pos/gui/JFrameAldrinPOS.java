@@ -89,6 +89,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private DecimalFormat df = new DecimalFormat("##,##0.00");
     private JTextComponent editor;
     private UserAccount userAccount;
+    public static UserAccount userLogin;
 
     public JFrameAldrinPOS() {
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(187, 187, 187));
@@ -1571,7 +1572,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 //                svgColorChange(new java.awt.Color(135,206,250));//LightSkyBlue
 //                svgColorChange(new java.awt.Color(175,238,238));//PaleTurquoise
 //                svgColorChange(new java.awt.Color(46,139,87));//SeaGreen
-                svgColorChange(new java.awt.Color(135,206,235));//SeaGreen
+                svgColorChange(new java.awt.Color(135, 206, 235));//SeaGreen
                 UIManager.setLookAndFeel(new FlatDarkLaf());
                 SwingUtilities.updateComponentTreeUI(this);
             } catch (UnsupportedLookAndFeelException ex) {
@@ -2185,7 +2186,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 StockInEntry stockInEntry = new StockInEntry();
 //                problem of column of invoice id  from invoice enrty table
                 InvoiceDAOImpl invoiceDaoImpl = new InvoiceDAOImpl();
-                userAccount.setId(1L);
+                userAccount.setId(this.getUserAccount().getId());
                 invoice.setUserAccount(userAccount);
                 invoiceDaoImpl.addInvoice(invoice);
 //              "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
@@ -2542,6 +2543,20 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
      */
     public void setjButtonStockIn(javax.swing.JButton jButtonStockIn) {
         this.jButtonStockIn = jButtonStockIn;
+    }
+
+    /**
+     * @return the userLogin
+     */
+    public static UserAccount getUserLogin() {
+        return userLogin;
+    }
+
+    /**
+     * @param aUserLogin the userLogin to set
+     */
+    public static void setUserLogin(UserAccount aUserLogin) {
+        userLogin = aUserLogin;
     }
 
 }

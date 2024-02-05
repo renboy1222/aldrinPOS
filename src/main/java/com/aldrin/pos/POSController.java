@@ -9,7 +9,6 @@ import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.gui.JFrameLogin;
 import com.aldrin.pos.model.Role;
 import com.aldrin.pos.model.UserAccount;
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -66,6 +65,7 @@ public class POSController {
             jFrameLogin.dispose();
             jFrameAldrinPOS.getjMenuUser().setText(user.getSurname() + ", " + user.getFirstname());
             jFrameAldrinPOS.setUserAccount(user);
+            jFrameAldrinPOS.userLogin = user;
             jFrameAldrinPOS.setVisible(true);
         } else {
             jFrameLogin.getjLabelErrorMessage().setText("Please check your username and password and try again.");
