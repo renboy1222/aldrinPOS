@@ -78,7 +78,6 @@ public class JDialogStockInEntry extends javax.swing.JDialog implements MouseLis
         jTableStockInEntry = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jButtonRemove = new javax.swing.JButton();
-        jButtonPrint = new javax.swing.JButton();
         jButtonAddToTable = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabelGrandTotal = new javax.swing.JLabel();
@@ -149,10 +148,6 @@ public class JDialogStockInEntry extends javax.swing.JDialog implements MouseLis
             }
         });
         jPanel4.add(jButtonRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 84, 30));
-
-        jButtonPrint.setText("Print");
-        jButtonPrint.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jPanel4.add(jButtonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 84, 30));
 
         jButtonAddToTable.setText("Add");
         jButtonAddToTable.setMargin(new java.awt.Insets(2, 2, 2, 2));
@@ -282,7 +277,6 @@ public class JDialogStockInEntry extends javax.swing.JDialog implements MouseLis
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAddToTable;
     private javax.swing.JButton jButtonAddTransporter;
-    private javax.swing.JButton jButtonPrint;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JComboBox<Object> jComboBoxTransporter;

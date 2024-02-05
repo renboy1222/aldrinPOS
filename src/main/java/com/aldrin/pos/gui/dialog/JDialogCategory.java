@@ -42,7 +42,7 @@ public class JDialogCategory extends javax.swing.JDialog implements MouseListene
         selectCategory();
         jTextFieldSearch.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Search");
         //icon
-        jTextFieldSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("svg/search.svg",24,24));
+        jTextFieldSearch.putClientProperty(FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSVGIcon("svg/search.svg", 24, 24));
         jButtonDelete.setEnabled(false);
         jButtonUpdate.setEnabled(false);
     }
@@ -131,7 +131,7 @@ public class JDialogCategory extends javax.swing.JDialog implements MouseListene
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGap(0, 761, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +197,7 @@ public class JDialogCategory extends javax.swing.JDialog implements MouseListene
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.NORTH);
 
-        setSize(new java.awt.Dimension(603, 416));
+        setSize(new java.awt.Dimension(777, 416));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -262,6 +262,15 @@ public class JDialogCategory extends javax.swing.JDialog implements MouseListene
         hide0.setMinWidth(0);
         hide0.setMaxWidth(0);
         hide0.setPreferredWidth(0);
+        
+        TableColumn[] column = new TableColumn[100];
+        column[1] = jTableCategory.getColumnModel().getColumn(1);
+        column[1].setPreferredWidth(80);
+
+        column[2] = jTableCategory.getColumnModel().getColumn(2);
+        column[2].setPreferredWidth(480);
+
+   
 
     }
 

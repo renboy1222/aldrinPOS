@@ -8,6 +8,7 @@ import com.aldrin.pos.data.dao.impl.StockInEntryDAOImpl;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.model.StockInEntry;
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -73,6 +74,7 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         jPanel30 = new javax.swing.JPanel();
         jLabelGrandTotal = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButtonPrint = new javax.swing.JButton();
         jPanel31 = new javax.swing.JPanel();
         jPanel32 = new javax.swing.JPanel();
 
@@ -164,16 +166,26 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         jPanelFrameContainer.add(jPanel29, java.awt.BorderLayout.NORTH);
 
         jPanel30.setOpaque(false);
-        jPanel30.setPreferredSize(new java.awt.Dimension(270, 35));
+        jPanel30.setPreferredSize(new java.awt.Dimension(270, 45));
         jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelGrandTotal.setFont(new java.awt.Font("Courier New", 0, 22)); // NOI18N
         jLabelGrandTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel30.add(jLabelGrandTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 180, 30));
+        jPanel30.add(jLabelGrandTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 180, 30));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("TOTAL");
-        jPanel30.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 80, 30));
+        jPanel30.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 80, 30));
+
+        jButtonPrint.setIcon(new FlatSVGIcon("svg/print.svg",24,24));
+        jButtonPrint.setText("Print");
+        jButtonPrint.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrintActionPerformed(evt);
+            }
+        });
+        jPanel30.add(jButtonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
 
         jPanelFrameContainer.add(jPanel30, java.awt.BorderLayout.SOUTH);
 
@@ -188,7 +200,7 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         );
         jPanel31Layout.setVerticalGroup(
             jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 307, Short.MAX_VALUE)
         );
 
         jPanelFrameContainer.add(jPanel31, java.awt.BorderLayout.EAST);
@@ -204,7 +216,7 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         );
         jPanel32Layout.setVerticalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 307, Short.MAX_VALUE)
         );
 
         jPanelFrameContainer.add(jPanel32, java.awt.BorderLayout.WEST);
@@ -213,12 +225,17 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
 
         getContentPane().add(jPanel10, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(861, 406));
+        setSize(new java.awt.Dimension(861, 365));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPrintActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

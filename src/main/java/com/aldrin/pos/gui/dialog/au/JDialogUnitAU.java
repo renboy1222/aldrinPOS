@@ -32,7 +32,7 @@ public class JDialogUnitAU extends javax.swing.JDialog {
         initComponents();
         setTitle("New");
         this.title = "New";
-        jButton1.setIcon(new FlatSVGIcon("svg/save.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/save.svg",24,24));
         jTextFieldUnit.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "UNIT");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");
         jTextFieldUnit.setText(unit.getUnit());
@@ -46,7 +46,7 @@ public class JDialogUnitAU extends javax.swing.JDialog {
         setTitle(title);
         this.title = title;
         this.unit = unit;
-        jButton1.setIcon(new FlatSVGIcon("svg/update.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg",24,24));
         jButton1.setText(title);
         jTextFieldUnit.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "UNIT");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");
@@ -61,7 +61,7 @@ public class JDialogUnitAU extends javax.swing.JDialog {
         setTitle(title);
         this.unit = unit;
         this.title = title;
-        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg",24,24));
         jButton1.setText(title);
         jTextFieldUnit.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "UNIT");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");

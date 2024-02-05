@@ -32,7 +32,7 @@ public class JDialogRoleAU extends javax.swing.JDialog {
         initComponents();
         setTitle("New");
         this.title = "New";
-        jButton1.setIcon(new FlatSVGIcon("svg/save.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/save.svg",24,24));
         jTextFieldRole.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ROLE");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");
         jTextFieldRole.setText(role.getRole());
@@ -46,7 +46,7 @@ public class JDialogRoleAU extends javax.swing.JDialog {
         setTitle(title);
         this.title = title;
         this.role = role;
-        jButton1.setIcon(new FlatSVGIcon("svg/update.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg",24,24));
         jButton1.setText(title);
         jTextFieldRole.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ROLE");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");
@@ -61,7 +61,7 @@ public class JDialogRoleAU extends javax.swing.JDialog {
         setTitle(title);
         this.role = role;
         this.title = title;
-        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg",24,24));
         jButton1.setText(title);
         jTextFieldRole.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ROLE");
         jTextFieldDescription.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "DESCRIPTION");

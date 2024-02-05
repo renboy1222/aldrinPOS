@@ -2187,7 +2187,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 InvoiceDAOImpl invoiceDaoImpl = new InvoiceDAOImpl();
                 userAccount.setId(1L);
                 invoice.setUserAccount(userAccount);
-//                invoiceDaoImpl.addInvoice(invoice);
+                invoiceDaoImpl.addInvoice(invoice);
 //              "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
                 for (int i = 0; i < jTableDispense.getRowCount(); i++) {
                     Integer qty = Integer.parseInt(jTableDispense.getValueAt(i, 4).toString());
@@ -2200,8 +2200,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                         stockInEntry.setId(stockInEntryId);
                         invoiceEntry.setInvoice(invoice);
                         invoiceEntry.setStockInEntryId(stockInEntry);
-//                        stockInEntryDAOImpl.updateStockInEntryProcess(stockInEntry);
-//                        invoiceEntryDAOImpl.addInvoiceEntry(invoiceEntry);
+                        stockInEntryDAOImpl.updateStockInEntryProcess(stockInEntry);
+                        invoiceEntryDAOImpl.addInvoiceEntry(invoiceEntry);
                     } else if (qty > 1) {
                         for (int j = qty; 0 < j; j--) {
                             Long stockInEntryIdParam = Long.parseLong(jTableDispense.getValueAt(i, 0).toString());
@@ -2211,8 +2211,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                             stockInEntry.setId(stockInEntryId);
                             invoiceEntry.setInvoice(invoice);
                             invoiceEntry.setStockInEntryId(stockInEntry);
-//                            stockInEntryDAOImpl.updateStockInEntryProcess(stockInEntry);
-//                            invoiceEntryDAOImpl.addInvoiceEntry(invoiceEntry);
+                            stockInEntryDAOImpl.updateStockInEntryProcess(stockInEntry);
+                            invoiceEntryDAOImpl.addInvoiceEntry(invoiceEntry);
                         }
                     }
                 }

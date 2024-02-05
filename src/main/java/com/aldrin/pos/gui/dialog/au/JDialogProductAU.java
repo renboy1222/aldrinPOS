@@ -36,7 +36,7 @@ public class JDialogProductAU extends javax.swing.JDialog {
         initComponents();
         setTitle("New");
         this.title = "New";
-        jButton1.setIcon(new FlatSVGIcon("svg/save.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/save.svg",24,24));
         jTextFieldProduct.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "PRODUCT");
         jTextFieldBarcode.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "BARCODE");
         jTextFieldProduct.setText(product.getProduct());
@@ -51,7 +51,7 @@ public class JDialogProductAU extends javax.swing.JDialog {
         setTitle(title);
         this.title = title;
         this.product = product;
-        jButton1.setIcon(new FlatSVGIcon("svg/update.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/edit.svg",24,24));
         jButton1.setText(title);
         jTextFieldProduct.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "PRODUCT");
         jTextFieldBarcode.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "BARCODE");
@@ -70,7 +70,7 @@ public class JDialogProductAU extends javax.swing.JDialog {
         setTitle(title);
         this.product = product;
         this.title = title;
-        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg"));
+        jButton1.setIcon(new FlatSVGIcon("svg/delete.svg",24,24));
         jButton1.setText(title);
         jTextFieldProduct.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "PRODUCT");
         jTextFieldBarcode.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "BARCODE");
