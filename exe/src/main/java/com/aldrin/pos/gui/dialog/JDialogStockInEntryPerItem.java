@@ -9,6 +9,7 @@ import com.aldrin.pos.data.dao.impl.UnitDAOImpl;
 import com.aldrin.pos.util.AddProductToTable;
 import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.util.ComboBoxList;
+import com.aldrin.pos.util.NumberInput;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 
@@ -34,6 +35,9 @@ public class JDialogStockInEntryPerItem extends javax.swing.JDialog {
                 "[light]border: 0,0,0,0,shade(@background,30%),,8;" + "[dark]border: 0,0,0,0,tint(@background,30%),,8");
         comboBoxProduct();
         comboBoxUnit();
+        new NumberInput().intValidator(jTextFieldQuantity);
+        new NumberInput().doubleValidator(jTextFieldBuyingPrice);
+        new NumberInput().doubleValidator(jTextFieldSellingPrice);
     }
 
     /**

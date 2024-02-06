@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Feb 06 14:05:34 PST 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-018d-7d05-94e6-000006991428 
+Tue Feb 06 14:32:20 PST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-018d-7d1e-1669-00000697a9b8 
 on database directory C:\Users\aldri\Documents\NetBeansProjects\AldrinPOS\pos_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
 Loaded from file:/C:/Users/aldri/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation

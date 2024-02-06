@@ -567,11 +567,6 @@ TransporterDAOImpl transporterDAOImpl = new TransporterDAOImpl();
                 com.aldrin.pos.model.Process process = new com.aldrin.pos.model.Process();
                 process.setId(1L);
                 stockInEntry.setProcess(process);
-                System.out.println("STOCKIN ID:" + stockInEntry.getStockIn().getId());
-                System.out.println("UNIT ID:" + stockInEntry.getUnit().getId());
-                System.out.println("PRODUCT ID:" + stockInEntry.getProduct().getId());
-                System.out.println("PROCESS ID:" + stockInEntry.getProcess().getId());
-                System.out.println("MAXSTOCK ENTRY ID:" + stockInEntryImpl.getMaxId());
                 stockInEntryImpl.addStockInEntry(stockInEntry);
             }
         }

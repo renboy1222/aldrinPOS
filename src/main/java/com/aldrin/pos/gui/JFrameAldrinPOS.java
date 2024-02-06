@@ -18,6 +18,7 @@ import com.aldrin.pos.data.dao.impl.InvoiceDAOImpl;
 import com.aldrin.pos.data.dao.impl.InvoiceEntryDAOImpl;
 import com.aldrin.pos.data.dao.impl.ProductDAOImpl;
 import com.aldrin.pos.data.dao.impl.StockInEntryDAOImpl;
+import com.aldrin.pos.gui.dialog.JDialogAbout;
 import com.aldrin.pos.gui.dialog.JDialogCategory;
 import com.aldrin.pos.gui.dialog.JDialogChangePassword;
 import com.aldrin.pos.gui.dialog.JDialogProduct;
@@ -91,7 +92,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private JTextComponent editor;
     private UserAccount userAccount;
     public static UserAccount userLogin;
-    
+
     public JFrameAldrinPOS() {
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_BACKGROUND, new Color(187, 187, 187));
         initComponents();
@@ -111,7 +112,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jTextFieldBarcode.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "BARCODE");
         comboBoxProduct();
         new NumberInput().intValidator(jTextFieldBarcode);
-        
+
         jButtonQtyAdd.setEnabled(false);
         jButtonQtyMinus.setEnabled(false);
         jButtonQtyEdit.setEnabled(false);
@@ -124,7 +125,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         editor.setDocument(new ComboBoxAutoFill(jComboBoxProduct));
         jScrollPane1.setFocusable(false);
         jTableDispense.setFocusable(false);
-        
+
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 quitApp();
@@ -139,7 +140,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         } catch (IOException ex) {
             Logger.getLogger(JFrameAldrinPOS.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     /**
@@ -289,6 +290,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jMenuItemLight = new javax.swing.JMenuItem();
         jMenuItemDark = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aldrin POS v1.0");
@@ -1406,6 +1409,19 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Help");
+
+        jMenuItem1.setIcon(new FlatSVGIcon("svg/about.svg",16,16));
+        jMenuItem1.setText("About");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         setSize(new java.awt.Dimension(1186, 596));
@@ -1455,7 +1471,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             jToggleButton1.setIcon(new FlatSVGIcon("svg/list.svg", 32, 32));
             jTextFieldBarcode.setFocusable(false);
             jComboBoxProduct.setFocusable(true);
-            
+
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -1510,7 +1526,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     }//GEN-LAST:event_jButtonNewDispenseActionPerformed
 
     private void jButtonHoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHoldActionPerformed
-        
+
         if (jButtonHold.getText().equals("<html><center>Unhold<br><h4 style=\"color:red; padding:0; margin:0;\">[F4]</h4></center></html>")) {
             int response = JOptionPane.showConfirmDialog(this, "Are you sure to unhold order?", "Hold confirmation!", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
@@ -1563,7 +1579,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             } catch (UnsupportedLookAndFeelException ex) {
                 Logger.getLogger(JFrameAldrinPOS.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         });
 
     }//GEN-LAST:event_jMenuItemLightActionPerformed
@@ -1580,7 +1596,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             } catch (UnsupportedLookAndFeelException ex) {
                 Logger.getLogger(JFrameAldrinPOS.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         });
 
     }//GEN-LAST:event_jMenuItemDarkActionPerformed
@@ -1598,6 +1614,11 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         quitApp();
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JDialogAbout about = new JDialogAbout(this, true);
+        about.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1652,7 +1673,9 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     private javax.swing.JLabel jLabeltxtCash4;
     private javax.swing.JLabel jLabeltxtChange;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -1754,7 +1777,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     // End of variables declaration//GEN-END:variables
 
     private CategoryDAOImpl roleDAOImpl = new CategoryDAOImpl();
-    
+
     public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICEUF", "LINE TOTALUF", "PRICE", "LINE TOTAL"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
@@ -1781,18 +1804,18 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                     return String.class;
             }
         }
-        
+
         public boolean isCellEditable(int row, int col) {
             if (col < 10) {
                 return false;
-                
+
             } else {
                 return true;
             }
         }
     };
     private TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tableModel);
-    
+
     private void setTable() {
         jTableDispense.setCellSelectionEnabled(true);
         jTableDispense = new JTable(tableModel);
@@ -1816,24 +1839,24 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         TableColumn[] column = new TableColumn[100];
         column[1] = jTableDispense.getColumnModel().getColumn(1);
         column[1].setPreferredWidth(30);
-        
+
         column[2] = jTableDispense.getColumnModel().getColumn(2);
         column[2].setPreferredWidth(80);
-        
+
         column[3] = jTableDispense.getColumnModel().getColumn(3);
         column[3].setPreferredWidth(320);
-        
+
         column[4] = jTableDispense.getColumnModel().getColumn(4);
         column[4].setPreferredWidth(60);
-        
+
         column[5] = jTableDispense.getColumnModel().getColumn(5);
         column[5].setPreferredWidth(100);
-        
+
         column[6] = jTableDispense.getColumnModel().getColumn(6);
         column[6].setPreferredWidth(100);
-        
+
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == jTableDispense) {
@@ -1850,23 +1873,23 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             }
         }
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent e) {
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent e) {
     }
-    
+
     @Override
     public void mouseExited(MouseEvent e) {
     }
-    
+
     private void comboBoxProduct() {
         productDAOImpl.comboBoxProduct();
         jComboBoxProduct.removeAllItems();
@@ -1874,7 +1897,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             this.jComboBoxProduct.addItem(a);
         }
     }
-    
+
     private void addProductToTable() {
         boolean multipleProduct = false;
         StockInEntryDAOImpl productDAOImpl = new StockInEntryDAOImpl();
@@ -1929,7 +1952,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             jTextFieldBarcode.setText("");
         }
     }
-    
+
     private void calculateLineTotal() {
         try {
             float grandTotal = 0.0F;
@@ -1944,7 +1967,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             e.printStackTrace();
         }
     }
-    
+
     public void autoCalulateTable() {
         try {
             setTotalAmount(0.0F);
@@ -1987,13 +2010,13 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 jButtonQtyEdit.setEnabled(false);
                 jButtonQtyRemove.setEnabled(false);
             }
-            
+
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return;
         }
     }
-    
+
     private void qtyMinus() {
         try {
             int minusQty = 0;
@@ -2008,19 +2031,19 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 jTableDispense.setValueAt(minusQty, selected, 4);
                 jTableDispense.setValueAt(minusQty * price, selected, 6);
                 jTableDispense.setValueAt(df.format(minusQty * price), selected, 8);
-                
+
                 jButtonQtyAdd.setEnabled(false);
                 jButtonQtyMinus.setEnabled(false);
                 jButtonQtyEdit.setEnabled(false);
                 jButtonQtyRemove.setEnabled(false);
             }
-            
+
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return;
         }
     }
-    
+
     private void qtyEdit() {
         StockInEntryDAOImpl stockInEntryDAOImpl = new StockInEntryDAOImpl();
         String q = null;
@@ -2029,7 +2052,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             Object qty = jTableDispense.getValueAt(selected, 4);
             q = JOptionPane.showInputDialog(this, "Change the quantity in text", qty);
             int qty1 = 0;
-            
+
             if (q != null) {
                 qty1 = Integer.parseInt(q);
             }
@@ -2047,9 +2070,9 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 jButtonQtyRemove.setEnabled(false);
                 return;
             }
-            
+
             Float price = Float.parseFloat(jTableDispense.getValueAt(selected, 5).toString());
-            
+
             jTableDispense.setValueAt(qty1, selected, 4);
             jTableDispense.setValueAt(qty1 * price, selected, 6);
             jTableDispense.setValueAt(df.format(qty1 * price), selected, 8);
@@ -2057,15 +2080,15 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             jButtonQtyMinus.setEnabled(false);
             jButtonQtyEdit.setEnabled(false);
             jButtonQtyRemove.setEnabled(false);
-            
+
         } catch (NumberFormatException e) {
             JOptionPane.showConfirmDialog(this, q + " is not a valid integer", "Error quantiy input!!", JOptionPane.PLAIN_MESSAGE);
             return;
         }
     }
-    
+
     private void removeProduct() {
-        
+
         int numRows = jTableDispense.getSelectedRows().length;
         if (numRows == 0) {
             jLabelTotal.setText("0.00");
@@ -2079,7 +2102,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         jButtonQtyEdit.setEnabled(false);
         jButtonQtyRemove.setEnabled(false);
     }
-    
+
     private void newTransaction() {
         try {
             int response = JOptionPane.showConfirmDialog(this, "Are you sure to create new transaction?", "New transaction confirmation", JOptionPane.YES_NO_OPTION);
@@ -2093,7 +2116,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 } else if (jButtonHold.getText().equals("<html><center>Hold<br><h4 style=\"color:red; padding:0; margin:0;\">[F2]</h4></center></html>")) {
                     jButtonHold.setEnabled(false);
                 }
-                
+
                 JOptionPane.showConfirmDialog(this, "Creating new transaction.", "Message", JOptionPane.PLAIN_MESSAGE);
                 jLabelItems.setText(String.valueOf(jTableDispense.getRowCount()));
                 jLabeltxtChange.setText("0.00");
@@ -2104,9 +2127,9 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             e.printStackTrace();
         }
     }
-    
+
     private void paymentIsReady() {
-        
+
         if (jTableDispense.getRowCount() == 0) {
             jButtonNewDispense.setEnabled(false);
             jButtonHold.setEnabled(false);
@@ -2119,7 +2142,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     }
     private HoldOrder holdOrder = new HoldOrder();
     private ArrayList<HoldOrder> holdOrderList = new ArrayList<>();
-    
+
     private void holdOrderList() {
         for (int i = 0; i < jTableDispense.getRowCount(); i++) {
 //            "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICEUF", "LINE TOTALUF,"PRICE", "LINE TOTAL"
@@ -2135,17 +2158,17 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             holdOrderList.add(ho);
         }
     }
-    
+
     private void unHoldOrderList() {
 //            "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
         for (HoldOrder h : holdOrderList) {
             tableModel.addRow(new Object[]{h.getStockInId(), jTableDispense.getRowCount() + 1, h.getUnit(), h.getProduct(), h.getQuantity(), h.getPriceUf(), h.getLinePriceUf(), h.getPrice(), h.getLinePrice()});
         }
     }
-    
+
     private void fontsInit() {
         try {
-            
+
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(44f);
             jLabelAmountDue.setFont(font.deriveFont(28f));
             jLabeltxtAmountDue.setFont(font);
@@ -2163,24 +2186,24 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             e.printStackTrace();
         }
     }
-    
+
     private Float totalAmount = 0.00F;
-    
+
     public Float getTotalAmount() {
         return totalAmount;
     }
-    
+
     public void setTotalAmount(Float totalAmount) {
         this.totalAmount = totalAmount;
     }
-    
+
     private void addPayment() {
         try {
             JDialogPayment payment = new JDialogPayment(this, true, getTotalAmount());
             payment.setVisible(true);
             StockInEntryDAOImpl stockInEntryDAOImpl = new StockInEntryDAOImpl();
             InvoiceEntryDAOImpl invoiceEntryDAOImpl = new InvoiceEntryDAOImpl();
-            
+
             if (payment.isPaid() == true) {
                 Invoice invoice = new Invoice();
                 InvoiceEntry invoiceEntry = new InvoiceEntry();
@@ -2197,7 +2220,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                     if (qty == 1) {
                         Long productId = Long.parseLong(jTableDispense.getValueAt(i, 0).toString());
                         Long stockInEntryId = stockInEntryDAOImpl.getStockInEntryIDByProcessId(productId);
-                        
+
                         Long invoiceId = invoiceDaoImpl.getMaxIdForRef();
                         invoice.setId(invoiceId);
                         stockInEntry.setId(stockInEntryId);
@@ -2227,15 +2250,15 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 createItemList();
                 printReciept();
                 tableModel.setRowCount(0);
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     class ComboBoxItemKeyListener extends KeyAdapter {
-        
+
         public void keyPressed(KeyEvent evt) {
             if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
                 comboBoxAddProductToTable();
@@ -2247,7 +2270,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             }
         }
     }
-    
+
     private void comboBoxAddProductToTable() {
         boolean multipleProduct = false;
         StockInEntryDAOImpl productDAOImpl = new StockInEntryDAOImpl();
@@ -2304,7 +2327,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             jTextFieldBarcode.setText("");
         }
     }
-    
+
     private java.util.ArrayList<ProductToPrint> createItemList() {
         java.util.ArrayList<ProductToPrint> iL = new java.util.ArrayList<ProductToPrint>();
 //        "STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "PRICE", "LINE TOTAL"
@@ -2320,7 +2343,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         }
         return iL;
     }
-    
+
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         Float totalAmount = 0.0F;
@@ -2328,11 +2351,11 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         ImageIcon icon = new ImageIcon(getClass().getResource("/images/aldrinPOS.png"));
         int result = NO_SUCH_PAGE;
         if (pageIndex == 0) {
-            
+
             Graphics2D g2d = (Graphics2D) graphics;
             double width = pageFormat.getImageableWidth();
             g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
-            
+
             FontMetrics metrics = g2d.getFontMetrics(new Font("Arial", Font.BOLD, 7));
             try {
                 int y = 15;
@@ -2342,7 +2365,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 double wh = pageFormat.getImageableWidth();
                 double ht = pageFormat.getImageableHeight();
                 g2d.drawImage(null, 0, 0, (int) wh, (int) ht, null);
-                
+
                 g2d.setFont(new Font("Monospaced", Font.PLAIN, 9));
                 g2d.drawImage(icon.getImage(), 55, 20, 60, 30, rootPane);
                 y += yShift + 30;
@@ -2363,12 +2386,12 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 y += yShift;
                 g2d.drawString("------------------------------", 10, y);
                 y += yShift;
-                
+
                 g2d.drawString(" Item                 Price", 10, y);
                 y += yShift;
                 g2d.drawString("------------------------------", 10, y);
                 y += headerRectHeight;
-                
+
                 for (ProductToPrint item : createItemList()) {
                     g2d.drawString(" " + item.getProduct() + "                    ", 10, y);
                     y += yShift;
@@ -2377,7 +2400,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                     y += yShift;
                 }
                 Float cash = Float.parseFloat(jLabeltxtCash.getText());
-                
+
                 g2d.drawString("------------------------------", 10, y);
                 y += yShift;
                 g2d.drawString(" Total   :            " + String.valueOf(jLabeltxtAmountDue.getText()) + "   ", 10, y);
@@ -2392,14 +2415,14 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                 y += yShift;
                 y += yShift;
                 y += yShift;
-                
+
                 g2d.drawString("******************************", 10, y);
                 y += yShift;
                 g2d.drawString("    THANK YOU, COME AGAIN!!    ", 10, y);
                 y += yShift;
                 g2d.drawString("******************************", 10, y);
                 y += yShift;
-                
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -2407,12 +2430,12 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         }
         return result;
     }
-    
+
     public PageFormat getPageFormat(PrinterJob pj) {
-        
+
         PageFormat pf = pj.defaultPage();
         Paper paper = pf.getPaper();
-        
+
         double width = pf.getImageableWidth();
         double height = pf.getImageableHeight();
         paper.setSize(width, height);
@@ -2421,17 +2444,17 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         pf.setPaper(paper);
         return pf;
     }
-    
+
     protected static double cm_to_pp(double cm) {
         return toPPI(cm * 0.393600787);
     }
-    
+
     protected static double toPPI(double inch) {
         return inch * 58d;
     }
-    
+
     private void printReciept() {
-        
+
         PrinterJob pj = PrinterJob.getPrinterJob();
         pj.setPrintable(this, getPageFormat(pj));
 
@@ -2445,7 +2468,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
             }
         }
     }
-    
+
     private void svgColorChange(Color clr) {
         try {
             Function<Color, Color> mapper = null;
@@ -2516,7 +2539,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     public void setjMenuSetting(javax.swing.JMenu jMenuSetting) {
         this.jMenuSetting = jMenuSetting;
     }
-    
+
     private void quitApp() {
         try {
             int reply = JOptionPane.showConfirmDialog(this,
@@ -2530,7 +2553,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
 
     /**
@@ -2560,5 +2583,5 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
     public static void setUserLogin(UserAccount aUserLogin) {
         userLogin = aUserLogin;
     }
-    
+
 }

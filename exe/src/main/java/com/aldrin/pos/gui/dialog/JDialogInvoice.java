@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -271,10 +272,10 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         for (Invoice in : invoiceList) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss a");
             String formattedTimestamp = dateFormat.format(in.getTimeStamp());
-            tableModel.addRow(new Object[]{in.getId(), formattedTimestamp, in.getUserAccount().getSurname() + ", " + in.getUserAccount().getFirstname(), df.format(in.getAmount())});
+            tableModel.addRow(new Object[]{in.getId(), formattedTimestamp, in.getUserAccount().getSurname() + ", " + in.getUserAccount().getFirstname(), in.getAmount(), df.format(in.getAmount())});
         }
     }
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"INOVICE ID", "CREATED", "USER", "AMOUNT"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"INOVICE ID", "CREATED", "USER", "AMOUNTUF", "AMOUNT"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -287,6 +288,8 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
                 case 2:
                     return String.class;
                 case 3:
+                    return Integer.class;
+                case 4:
                     return Integer.class;
                 default:
                     return String.class;
@@ -318,10 +321,10 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
 //        hide1.setMinWidth(0);
 //        hide1.setMaxWidth(0);
 //        hide1.setPreferredWidth(0);
-//        TableColumn hide2 = jTableInvoice.getColumnModel().getColumn(2);
-//        hide2.setMinWidth(0);
-//        hide2.setMaxWidth(0);
-//        hide2.setPreferredWidth(0);
+        TableColumn hide3 = jTableInvoice.getColumnModel().getColumn(3);
+        hide3.setMinWidth(0);
+        hide3.setMaxWidth(0);
+        hide3.setPreferredWidth(0);
 
     }
 
@@ -336,7 +339,8 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
                         Long productId = Long.parseLong(jTableInvoice.getValueAt(row, 0).toString());
                         String createdAt = String.valueOf(jTableInvoice.getValueAt(row, 1).toString());
                         String user = jTableInvoice.getValueAt(row, 2).toString();
-                        Float amount = Float.parseFloat(jTableInvoice.getValueAt(row, 3).toString());
+                        Float amountuf = Float.parseFloat(jTableInvoice.getValueAt(row, 3).toString());
+                        String amount = jTableInvoice.getValueAt(row, 4).toString();
                         InvoiceEntry ie = new InvoiceEntry();
                         Invoice si = new Invoice();
                         UserAccount u = new UserAccount();
@@ -344,7 +348,7 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
                         si.setId(productId);
                         si.setUserAccount(u);
                         ie.setInvoice(si);
-                        ie.setTotal(amount);
+                        ie.setTotal(amountuf);
 
                         this.invoiceEntry = ie;
                         jButtonPreview.setEnabled(true);

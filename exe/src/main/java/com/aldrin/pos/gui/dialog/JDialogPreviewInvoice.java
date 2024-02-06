@@ -37,13 +37,12 @@ public class JDialogPreviewInvoice extends javax.swing.JDialog {
         this.invoiceEntry = se;
         jPanelGrandTotal.putClientProperty(FlatClientProperties.STYLE,
                 "[light]border: 0,0,0,0,shade(@background,30%),,18;" + "[dark]border: 0,0,0,0,tint(@background,30%),,8");
-        setTitle("INVOICE ID:" + "[" +se.getInvoice().getId()+ "]");
+        setTitle("INVOICE ID:" + "[" + se.getInvoice().getId() + "]");
         setTable();
         selectInvoiceEntry();
         jLabelUser.setText(se.getInvoice().getUserAccount().getFirstname());
         jLabelAmount.setText(String.valueOf(df.format(se.getTotal())));
         jLabelGrandTotal.setText(String.valueOf(df.format(se.getTotal())));
-       
 
     }
 
@@ -243,17 +242,17 @@ public class JDialogPreviewInvoice extends javax.swing.JDialog {
     private ArrayList<InvoiceEntry> invoiceEntryList;
 
     private void selectInvoiceEntry() {
-//      "PRODUCT, UNIT, QTY, PRICE SELL, TOTAL"
+//      "PRODUCT", " UNIT", "QTY", "PRICEUF", "TOTALUF", "PRICE", "TOTAL"
         tableModel.setRowCount(0);
         invoiceEntryList = stockInDAOImpl.selectInvoiceEntry(invoiceEntry);
         tableModel.setRowCount(0);
         for (InvoiceEntry se : invoiceEntryList) {
             tableModel.addRow(new Object[]{se.getStockInEntryId().getProduct().getProduct(), se.getStockInEntryId().getUnit().getUnit(),
-                se.getQuantity(), se.getStockInEntryId().getPriceSelling(), se.getTotal()});
+                se.getQuantity(), se.getStockInEntryId().getPriceSelling(), se.getTotal(), df.format(se.getStockInEntryId().getPriceSelling()), df.format(se.getTotal())});
         }
 
     }
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"PRODUCT"," UNIT","QTY", "PRICE", "TOTAL"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"PRODUCT", " UNIT", "QTY", "PRICEUF", "TOTALUF", "PRICE", "TOTAL"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -266,6 +265,10 @@ public class JDialogPreviewInvoice extends javax.swing.JDialog {
                 case 3:
                     return Integer.class;
                 case 4:
+                    return Integer.class;
+                case 5:
+                    return Integer.class;
+                case 6:
                     return Integer.class;
                 default:
                     return String.class;
@@ -307,37 +310,22 @@ public class JDialogPreviewInvoice extends javax.swing.JDialog {
         column[4] = jTableInvoiceEntry.getColumnModel().getColumn(4);
         column[4].setPreferredWidth(60);
 
-//        TableColumn hide0 = jTableInvoiceEntry.getColumnModel().getColumn(0);
-//        hide0.setMinWidth(0);
-//        hide0.setMaxWidth(0);
-//        hide0.setPreferredWidth(0);
-//        TableColumn hide1 = jTableStockInEntry.getColumnModel().getColumn(1);
-//        hide1.setMinWidth(0);
-//        hide1.setMaxWidth(0);
-//        hide1.setPreferredWidth(0);
-//        TableColumn hide2 = jTableStockInEntry.getColumnModel().getColumn(2);
-//        hide2.setMinWidth(0);
-//        hide2.setMaxWidth(0);
-//        hide2.setPreferredWidth(0);
-//        TableColumn hide7 = jTableStockInEntry.getColumnModel().getColumn(7);
-//        hide7.setMinWidth(0);
-//        hide7.setMaxWidth(0);
-//        hide7.setPreferredWidth(0);
-//        TableColumn hide8 = jTableStockInEntry.getColumnModel().getColumn(8);
-//        hide8.setMinWidth(0);
-//        hide8.setMaxWidth(0);
-//        hide8.setPreferredWidth(0);
-//        TableColumn hide9 = jTableStockInEntry.getColumnModel().getColumn(11);
-//        hide9.setMinWidth(0);
-//        hide9.setMaxWidth(0);
-//        hide9.setPreferredWidth(0);
+        TableColumn hide3 = jTableInvoiceEntry.getColumnModel().getColumn(3);
+        hide3.setMinWidth(0);
+        hide3.setMaxWidth(0);
+        hide3.setPreferredWidth(0);
+        TableColumn hide4 = jTableInvoiceEntry.getColumnModel().getColumn(4);
+        hide4.setMinWidth(0);
+        hide4.setMaxWidth(0);
+        hide4.setPreferredWidth(0);
+
     }
 
     public void autoCalulateTable() {
         try {
             double grandTotal = 0.0D;
             for (int i = 0; i < jTableInvoiceEntry.getRowCount(); i++) {
-                double lineTotal = Double.parseDouble(jTableInvoiceEntry.getValueAt(i, 7).toString());
+                double lineTotal = Double.parseDouble(jTableInvoiceEntry.getValueAt(i, 4).toString());
                 grandTotal = grandTotal + lineTotal;
                 jLabelGrandTotal.setText(String.valueOf(df.format(grandTotal)));
             }

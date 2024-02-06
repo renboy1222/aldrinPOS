@@ -232,7 +232,7 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
 
     private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
 
-        JDialogStockInReport report = new JDialogStockInReport(jFrameSariPOS, true,stockInEntry);
+        JDialogStockInReport report = new JDialogStockInReport(jFrameSariPOS, true, stockInEntry);
         report.setVisible(true);
     }//GEN-LAST:event_jButtonPrintActionPerformed
 
@@ -268,11 +268,11 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         stockInEntryList = stockInDAOImpl.selectStockInEntry(stockInEntry);
         tableModel.setRowCount(0);
         for (StockInEntry se : stockInEntryList) {
-            tableModel.addRow(new Object[]{se.getStockIn().getId(), jTableStockInEntry.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), se.getQty(), se.getPriceBuying(), se.getPriceSelling(), se.getQty() * se.getPriceBuying()});
+            tableModel.addRow(new Object[]{se.getStockIn().getId(), jTableStockInEntry.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), se.getQty(), se.getPriceBuying(), se.getPriceSelling(), se.getQty() * se.getPriceBuying(), df.format(se.getPriceBuying()),df.format(se.getPriceSelling()), df.format(se.getQty() * se.getPriceBuying())});
         }
 
     }
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "BUYING PRICE", "SELLING PRICE", "LINE TOTAL"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"STOCK IN ID", "#", "UNIT", "PRODUCT", "QUANTITY", "BUYING PRICE UF", "SELLING PRICEUF", "LINE TOTAL UF", "BUYING PRICE", "SELLING PRICE", "LINE TOTAL"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -291,6 +291,12 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
                 case 6:
                     return Integer.class;
                 case 7:
+                    return Integer.class;
+                case 8:
+                    return Integer.class;
+                case 9:
+                    return Integer.class;
+                case 10:
                     return Integer.class;
                 default:
                     return String.class;
@@ -341,6 +347,19 @@ public class JDialogPreviewStockIn extends javax.swing.JDialog {
         hide0.setMinWidth(0);
         hide0.setMaxWidth(0);
         hide0.setPreferredWidth(0);
+        
+        TableColumn hide5 = jTableStockInEntry.getColumnModel().getColumn(5);
+        hide5.setMinWidth(0);
+        hide5.setMaxWidth(0);
+        hide5.setPreferredWidth(0);
+        TableColumn hide6 = jTableStockInEntry.getColumnModel().getColumn(6);
+        hide6.setMinWidth(0);
+        hide6.setMaxWidth(0);
+        hide6.setPreferredWidth(0);
+        TableColumn hide7= jTableStockInEntry.getColumnModel().getColumn(7);
+        hide7.setMinWidth(0);
+        hide7.setMaxWidth(0);
+        hide7.setPreferredWidth(0);
 
     }
 
