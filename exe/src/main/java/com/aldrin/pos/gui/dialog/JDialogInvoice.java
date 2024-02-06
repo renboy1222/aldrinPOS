@@ -68,7 +68,6 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButtonPreview = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -152,17 +151,6 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         jPanel2.setPreferredSize(new java.awt.Dimension(964, 50));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 10));
 
-        jButton1.setIcon(new FlatSVGIcon("svg/file.svg",24,24));
-        jButton1.setText("New");
-        jButton1.setMargin(new java.awt.Insets(2, 2, 3, 2));
-        jButton1.setPreferredSize(new java.awt.Dimension(80, 32));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1);
-
         jButtonPreview.setIcon(new FlatSVGIcon("svg/preview.svg",24,24));
         jButtonPreview.setText("Preview");
         jButtonPreview.setMargin(new java.awt.Insets(2, 2, 3, 2));
@@ -227,13 +215,6 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
         }
     }//GEN-LAST:event_jTextFieldSearchKeyReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JDialogStockInEntry stockInEntry = new JDialogStockInEntry(jFrameSariPOS, true);
-        stockInEntry.setVisible(true);
-        jButtonPreview.setEnabled(false);
-        selectStockIn();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
         JDialogPreviewInvoice preview = new JDialogPreviewInvoice(jFrameSariPOS, true, invoiceEntry);
         preview.setVisible(true);
@@ -246,7 +227,6 @@ public class JDialogInvoice extends javax.swing.JDialog implements MouseListener
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonPreview;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
