@@ -124,7 +124,7 @@ public class TransporterDAOImpl extends DBConnection implements TransporterDAO {
                 t.setSurname(rs.getString("SURNAME"));
                 t.setMobile(rs.getString("MOBILE"));
                 t.setEmail(rs.getString("EMAIL"));
-                t.setAddress(rs.getString("COMPANY"));
+                t.setAddress(rs.getString("ADDRESS"));
                 t.setCompany(rs.getString("COMPANY"));
                 t.setCompany_address(rs.getString("COMPANY_ADDRESS"));
                 list.add(t);
