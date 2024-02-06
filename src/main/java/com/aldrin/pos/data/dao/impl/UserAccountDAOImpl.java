@@ -202,7 +202,7 @@ public class UserAccountDAOImpl extends DBConnection implements UserAccountDAO {
                     + "INNER JOIN \n"
                     + "    ALDRIN.ROLE \n"
                     + "ON \n"
-                    + "    (ALDRIN.USER_ACCOUNT.ROLE_ID = ALDRIN.ROLE.ID) WHERE ALDRIN.USER_ACCOUNT.USERNAME ='" + userAccount.getUsername() + "' AND ALDRIN.USER_ACCOUNT.PASSWORD ='" + userAccount.getPassword() + "' ");
+                    + "    (ALDRIN.USER_ACCOUNT.ROLE_ID = ALDRIN.ROLE.ID) WHERE ALDRIN.USER_ACCOUNT.USERNAME ='" + userAccount.getUsername() + "' AND ALDRIN.USER_ACCOUNT.PASSWORD ='" + userAccount.getPassword() + "' AND ALDRIN.USER_ACCOUNT.ACTIVE =true");
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 UserAccount ua = new UserAccount();
