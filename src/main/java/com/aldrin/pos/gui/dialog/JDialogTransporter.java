@@ -361,7 +361,7 @@ public class JDialogTransporter extends javax.swing.JDialog implements MouseList
         transporterList = transporterDAOImpl.selectTransporter();
         tableModel.setRowCount(0);
         for (Transporter t : transporterList) {
-            tableModel.addRow(new Object[]{t.getId(), t.getFirstname(), t.getSurname(), t.getEmail(), t.getMobile(), t.getAddress(), t.getClass(), t.getCompany_address()});
+            tableModel.addRow(new Object[]{t.getId(), t.getFirstname(), t.getSurname(), t.getEmail(), t.getMobile(), t.getAddress(), t.getCompany(), t.getCompany_address()});
         }
     }
 

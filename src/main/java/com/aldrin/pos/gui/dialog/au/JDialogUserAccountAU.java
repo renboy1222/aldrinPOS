@@ -366,7 +366,7 @@ public class JDialogUserAccountAU extends javax.swing.JDialog {
                     ImageIO.write(resizedImage, "png", new File(AldrinPOS.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\\images\\model.jpg"));
 
                 } catch (final IOException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Opss...", JOptionPane.ERROR_MESSAGE);
+                    
                 }
 
             } else {

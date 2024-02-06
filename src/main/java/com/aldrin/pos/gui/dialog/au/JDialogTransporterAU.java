@@ -368,9 +368,10 @@ public class JDialogTransporterAU extends javax.swing.JDialog {
 
                     jLabelPicture.setIcon(new ImageIcon(resizedImage)); //to eliminate .jpeg from picture filename
                     ImageIO.write(resizedImage, "png", new File(AldrinPOS.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\\images\\model.jpg"));
+                    
 
                 } catch (final IOException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Opss...", JOptionPane.ERROR_MESSAGE);
+                  
                 }
 
             } else {
@@ -426,6 +427,7 @@ public class JDialogTransporterAU extends javax.swing.JDialog {
     private void validatePhoto() throws URISyntaxException {
         if (transporter.getPhoto() == null) {
             File targetClassesDir = new File(AldrinPOS.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "\\images\\no photo.jpg");
+            System.out.println("photo location:"+targetClassesDir );
             try {
                 FileInputStream fis = new FileInputStream(targetClassesDir);
                 byte[] imageData = new byte[(int) targetClassesDir.length()];
