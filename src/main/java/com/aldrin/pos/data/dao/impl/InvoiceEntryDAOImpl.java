@@ -205,7 +205,7 @@ public class InvoiceEntryDAOImpl extends DBConnection implements InvoiceEntryDAO
 //                Date namel = rs.getDate("CREATEDAT");
                 java.sql.Timestamp timestamp = rs.getTimestamp("CREATEDAT");
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss a");
                 String formattedTimestamp = dateFormat.format(timestamp);
 
                 this.getList().add(new ComboBoxList(idl, formattedTimestamp));
@@ -242,7 +242,7 @@ public class InvoiceEntryDAOImpl extends DBConnection implements InvoiceEntryDAO
 //                String namel = rs.getString("CREATEDAT");
                 java.sql.Timestamp timestamp = rs.getTimestamp("CREATEDAT");
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss a");
                 String formattedTimestamp = dateFormat.format(timestamp);
 
                 this.getList().add(new ComboBoxList(idl, formattedTimestamp));

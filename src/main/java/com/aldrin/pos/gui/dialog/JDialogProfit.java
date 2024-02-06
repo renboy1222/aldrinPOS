@@ -335,11 +335,11 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
         profitList = profit.selectProfit();
         tableModel.setRowCount(0);
         for (Profit us : profitList) {
-            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableProfit.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), df.format(us.getProfit())});
+            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableProfit.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), us.getProfit(), df.format(us.getProfit())});
         }
     }
 
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"USER ID", "#", "USER", "TRANSACTIONS", "PROFIT"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"USER ID", "#", "USER", "TRANSACTIONS", "PROFITUF", "PROFIT"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -352,6 +352,8 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
                 case 3:
                     return Integer.class;
                 case 4:
+                    return Integer.class;
+                case 5:
                     return Integer.class;
 
                 default:
@@ -397,6 +399,11 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
         hide0.setMinWidth(0);
         hide0.setMaxWidth(0);
         hide0.setPreferredWidth(0);
+
+        TableColumn hide4 = jTableProfit.getColumnModel().getColumn(4);
+        hide4.setMinWidth(0);
+        hide4.setMaxWidth(0);
+        hide4.setPreferredWidth(0);
     }
 
     public void autoCalulateTable() {
@@ -438,7 +445,7 @@ public class JDialogProfit extends javax.swing.JDialog implements ActionListener
         profitList = profit.selectProfitWithParam(start, end);
         tableModel.setRowCount(0);
         for (Profit us : profitList) {
-            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableProfit.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), df.format(us.getProfit())});
+            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableProfit.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(),us.getProfit(), df.format(us.getProfit())});
         }
     }
 

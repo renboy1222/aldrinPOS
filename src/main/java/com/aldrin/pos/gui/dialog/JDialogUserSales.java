@@ -305,11 +305,11 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
         userSalesList = userSales.selectUserSales();
         tableModel.setRowCount(0);
         for (UserSales us : userSalesList) {
-            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableUserSales.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), df.format(us.getSales())});
+            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableUserSales.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), us.getSales(), df.format(us.getSales())});
         }
     }
 
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"USER ID", "#", "USER", "TRANSACTIONS", "SALES"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"USER ID", "#", "USER", "TRANSACTIONS", "SALESUF", "SALES"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -322,6 +322,8 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
                 case 3:
                     return Integer.class;
                 case 4:
+                    return Integer.class;
+                case 5:
                     return Integer.class;
 
                 default:
@@ -363,10 +365,15 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
 
         column[4] = jTableUserSales.getColumnModel().getColumn(4);
         column[4].setPreferredWidth(260);
+
         TableColumn hide0 = jTableUserSales.getColumnModel().getColumn(0);
         hide0.setMinWidth(0);
         hide0.setMaxWidth(0);
         hide0.setPreferredWidth(0);
+        TableColumn hide4 = jTableUserSales.getColumnModel().getColumn(4);
+        hide4.setMinWidth(0);
+        hide4.setMaxWidth(0);
+        hide4.setPreferredWidth(0);
     }
 
     public void autoCalulateTable() {
@@ -408,7 +415,7 @@ public class JDialogUserSales extends javax.swing.JDialog implements ActionListe
         userSalesList = userSales.selectUserSalesWithParam(start, end);
         tableModel.setRowCount(0);
         for (UserSales us : userSalesList) {
-            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableUserSales.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), df.format(us.getSales())});
+            tableModel.addRow(new Object[]{us.getUserAccount().getId(), jTableUserSales.getRowCount() + 1, us.getUserAccount().getSurname() + ", " + us.getUserAccount().getFirstname(), us.getTransaction(), us.getSales(), df.format(us.getSales())});
         }
     }
 

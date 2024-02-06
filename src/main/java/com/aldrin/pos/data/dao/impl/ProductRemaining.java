@@ -27,7 +27,7 @@ public class ProductRemaining extends DBConnection {
     private Unit unit;
     private StockInEntry stockInEntry;
     private String qtyRemaining;
-    private String lineTotal;
+    private Float lineTotal;
     
     public ArrayList<ProductRemaining> selectRemainingProduct() {
         ArrayList<ProductRemaining> list = new ArrayList<>();
@@ -78,7 +78,7 @@ public class ProductRemaining extends DBConnection {
                 pr.setUnit(unit);
                 pr.setQtyRemaining(rs.getString("QTY"));
                 pr.setStockInEntry(stockInEntry);
-                pr.setLineTotal(rs.getString("LINETOTAL"));
+                pr.setLineTotal(rs.getFloat("LINETOTAL"));
                 list.add(pr);
             }
             rs.close();

@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Feb 05 20:02:54 PST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-018d-7926-5fee-0000063a06f8 
+on database directory C:\Users\aldri\Documents\NetBeansProjects\AldrinPOS\exe\pos_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
+Loaded from file:/C:/Users/aldri/Documents/NetBeansProjects/AldrinPOS/exe/AldrinPOS-1.0-SNAPSHOT.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.1+12-LTS-29
+user.dir=C:\Users\aldri\Documents\NetBeansProjects\AldrinPOS\exe
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

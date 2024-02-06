@@ -285,16 +285,26 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
     private ArrayList<ProductRemaining> productRemainingList;
 
     private void selectRemainingProduct() {
-//      "CATEGORY.CATEGORY, PRODUCT.PRODUCT, UNIT.UNIT,STOCK_IN_ENTRY.PRICE_SELLING, STOCK_IN_ENTRY.PRICE_BUYING"
+//"#", "CATEGORY", "PRODUCT", "UNIT", "QTY REMAINING", "PRICE BUYINGuf", "PRICE SELLINGuf", "LINETOTALuf","PRICE BUYING", "PRICE SELLING", "LINETOTAL"
         tableModel.setRowCount(0);
         productRemainingList = productRemaining.selectRemainingProduct();
         tableModel.setRowCount(0);
         for (ProductRemaining pr : productRemainingList) {
-            tableModel.addRow(new Object[]{jTableStockInEntry.getRowCount() + 1, pr.getCategory().getCategory(), pr.getProduct().getProduct(), pr.getUnit().getUnit(), pr.getQtyRemaining(), pr.getStockInEntry().getPriceBuying(), pr.getStockInEntry().getPriceSelling(), pr.getLineTotal()});
+            tableModel.addRow(new Object[]{jTableStockInEntry.getRowCount() + 1,
+                pr.getCategory().getCategory(), 
+                pr.getProduct().getProduct(),
+                pr.getUnit().getUnit(), 
+                pr.getQtyRemaining(), 
+                pr.getStockInEntry().getPriceBuying(), 
+                pr.getStockInEntry().getPriceSelling(), 
+                pr.getLineTotal(), 
+                df.format(pr.getStockInEntry().getPriceBuying()), 
+                df.format(pr.getStockInEntry().getPriceSelling()), 
+                df.format(pr.getLineTotal())});
         }
     }
 
-    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"#", "CATEGORY", "PRODUCT", "UNIT", "QTY REMAINING", "PRICE BUYING", "PRICE SELLING", "LINETOTAL"}, 0) {
+    public DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"#", "CATEGORY", "PRODUCT", "UNIT", "QTY REMAINING", "PRICE BUYINGUF", "PRICE SELLINGUF", "LINETOTALUF", "PRICE BUYING", "PRICE SELLING", "LINETOTAL"}, 0) {
         public Class getColumnClass(int columnIndex) {
             if (columnIndex == 0) {
                 return String.class;
@@ -313,6 +323,12 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
                 case 6:
                     return Integer.class;
                 case 7:
+                    return Integer.class;
+                case 8:
+                    return Integer.class;
+                case 9:
+                    return Integer.class;
+                case 10:
                     return Integer.class;
                 default:
                     return String.class;
@@ -367,26 +383,19 @@ public class JDialogProductRemaining extends javax.swing.JDialog {
 //        hide0.setMinWidth(0);
 //        hide0.setMaxWidth(0);
 //        hide0.setPreferredWidth(0);
-//        TableColumn hide1 = jTableStockInEntry.getColumnModel().getColumn(1);
-//        hide1.setMinWidth(0);
-//        hide1.setMaxWidth(0);
-//        hide1.setPreferredWidth(0);
-//        TableColumn hide2 = jTableStockInEntry.getColumnModel().getColumn(2);
-//        hide2.setMinWidth(0);
-//        hide2.setMaxWidth(0);
-//        hide2.setPreferredWidth(0);
-//        TableColumn hide7 = jTableStockInEntry.getColumnModel().getColumn(7);
-//        hide7.setMinWidth(0);
-//        hide7.setMaxWidth(0);
-//        hide7.setPreferredWidth(0);
-//        TableColumn hide8 = jTableStockInEntry.getColumnModel().getColumn(8);
-//        hide8.setMinWidth(0);
-//        hide8.setMaxWidth(0);
-//        hide8.setPreferredWidth(0);
-//        TableColumn hide9 = jTableStockInEntry.getColumnModel().getColumn(11);
-//        hide9.setMinWidth(0);
-//        hide9.setMaxWidth(0);
-//        hide9.setPreferredWidth(0);
+        TableColumn hide5 = jTableStockInEntry.getColumnModel().getColumn(5);
+        hide5.setMinWidth(0);
+        hide5.setMaxWidth(0);
+        hide5.setPreferredWidth(0);
+        TableColumn hide6 = jTableStockInEntry.getColumnModel().getColumn(6);
+        hide6.setMinWidth(0);
+        hide6.setMaxWidth(0);
+        hide6.setPreferredWidth(0);
+        TableColumn hide7 = jTableStockInEntry.getColumnModel().getColumn(7);
+        hide7.setMinWidth(0);
+        hide7.setMaxWidth(0);
+        hide7.setPreferredWidth(0);
+
     }
 
     public void autoCalulateTable() {

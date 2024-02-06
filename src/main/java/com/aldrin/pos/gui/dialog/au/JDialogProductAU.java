@@ -10,6 +10,7 @@ import com.aldrin.pos.gui.JFrameAldrinPOS;
 import com.aldrin.pos.model.Category;
 import com.aldrin.pos.model.Product;
 import com.aldrin.pos.util.ComboBoxList;
+import com.aldrin.pos.util.NumberInput;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
@@ -42,6 +43,7 @@ public class JDialogProductAU extends javax.swing.JDialog {
         jTextFieldProduct.setText(product.getProduct());
         jTextFieldBarcode.setText(product.getBarcode());
         comboBoxCategory();
+        new NumberInput().intValidator(jTextFieldBarcode);
     }
 
     public JDialogProductAU(JFrameAldrinPOS jFrameSariPOS, boolean modal, Product product, String title) {
@@ -61,6 +63,7 @@ public class JDialogProductAU extends javax.swing.JDialog {
         for (ComboBoxList a : this.categoryDAOImpl.getList()) {
             a.setSelectedId(categoryDAOImpl.getList(), String.valueOf(product.getCategory().getId()), jComboBoxCategory);
         }
+        new NumberInput().intValidator(jTextFieldBarcode);
     }
 
     public JDialogProductAU(JFrameAldrinPOS jFrameSariPOS, boolean modal, String title, Product product) {
@@ -80,6 +83,7 @@ public class JDialogProductAU extends javax.swing.JDialog {
         for (ComboBoxList a : this.categoryDAOImpl.getList()) {
             a.setSelectedId(categoryDAOImpl.getList(), String.valueOf(product.getCategory().getId()), jComboBoxCategory);
         }
+        new NumberInput().intValidator(jTextFieldBarcode);
 
     }
 
