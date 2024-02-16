@@ -141,6 +141,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="jComboBoxStart">
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxStartActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
                           </AuxValues>

@@ -126,6 +126,12 @@ public class JDialogUserSalesReport extends javax.swing.JDialog implements Actio
         jLabel3.setText("END:");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
         jPanel3.add(jComboBoxEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 220, 30));
+
+        jComboBoxStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxStartActionPerformed(evt);
+            }
+        });
         jPanel3.add(jComboBoxStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 220, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -228,6 +234,10 @@ public class JDialogUserSalesReport extends javax.swing.JDialog implements Actio
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         autoPrint();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBoxStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxStartActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
