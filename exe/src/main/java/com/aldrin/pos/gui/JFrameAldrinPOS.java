@@ -2281,8 +2281,9 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         se.setProduct(p);
         System.out.println("product id:" + p.getId());
         se = productDAOImpl.findProductById(se);
-        boolean runOut = productDAOImpl.validateQtyRunOut(se.getProduct().getId(), 1);
-        if (runOut) {
+
+        boolean soldOut = productDAOImpl.validateQtyRunOut(se.getProduct().getId(), 1);
+        if (soldOut) {
             JOptionPane.showMessageDialog(this, "Quantity is run out.", "Quantity message", JOptionPane.PLAIN_MESSAGE);
             return;
         }
@@ -2293,7 +2294,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
         } else {
             int qty = 0;
             if (jTableDispense.getRowCount() == 0) {
-                tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying()});
+                tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying(), df.format(se.getPriceBuying()), df.format(se.getPriceBuying())});
                 jTextFieldBarcode.setText("");
                 return;
             } else {
@@ -2304,8 +2305,8 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                     Integer previousQty = Integer.parseInt(jTableDispense.getValueAt(i, 4).toString());
                     float total = Float.parseFloat(jTableDispense.getValueAt(i, 5).toString());
                     qty = 1 + previousQty;
-                    runOut = productDAOImpl.validateQtyRunOut(se.getProduct().getId(), qty);
-                    if ((runOut) && (se.getProduct().getId() == productId)) {
+                    soldOut = productDAOImpl.validateQtyRunOut(se.getProduct().getId(), qty);
+                    if ((soldOut) && (se.getProduct().getId() == productId)) {
                         JOptionPane.showMessageDialog(this, "Quantity is run out.", "Quantity message", JOptionPane.PLAIN_MESSAGE);
                         return;
                     }
@@ -2319,7 +2320,7 @@ public class JFrameAldrinPOS extends javax.swing.JFrame implements MouseListener
                     }
                 }
                 if (multipleProduct == true) {
-                    tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying()});
+                    tableModel.addRow(new Object[]{se.getProduct().getId(), jTableDispense.getRowCount() + 1, se.getUnit().getUnit(), se.getProduct().getProduct(), 1, se.getPriceBuying(), se.getPriceBuying(), df.format(se.getPriceBuying()), df.format(se.getPriceBuying())});
                 }
             }
             calculateLineTotal();

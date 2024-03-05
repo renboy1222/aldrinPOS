@@ -4,15 +4,12 @@
  */
 package com.aldrin.pos.gui;
 
-import com.aldrin.pos.data.dao.impl.UserAccountDAOImpl;
-import com.aldrin.pos.model.UserAccount;
+
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.File;
 
 /**

@@ -205,7 +205,7 @@ public class StockInEntryDAOImpl extends DBConnection implements StockInEntryDAO
             }
             rs.close();
             statement.close();
-            closeConnection();
+//            closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
